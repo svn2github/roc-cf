@@ -162,6 +162,11 @@ background:#fff;
 div#slider > #buttons > a :hover{
 background:#fff;
 }
+div#slider > .article {
+position:absolute;
+top:0;
+left:0;
+}
 div#slider > .article > .article-content > .body {
 width:600px;
 height:40px;
