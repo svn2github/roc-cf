@@ -33,7 +33,7 @@
 <cfquery name = "namecheck" datasource = "vipikas">
 	SELECT *
 	FROM users
-	WHERE username = '#username#'
+	WHERE username = <CFQUERYPARAM VALUE="#username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
 </cfquery>
 
 <cfif namecheck.recordcount>
