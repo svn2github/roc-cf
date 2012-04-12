@@ -32,7 +32,7 @@
 
 <cfquery name = "namecheck" datasource = "vipikas">
 	SELECT *
-	FROM characters
+	FROM users
 	WHERE username = '#username#'
 </cfquery>
 
@@ -42,8 +42,8 @@
 
 <cfset userid = #getusersid.recordcount#+1>
 	<cfquery name = "register" datasource = "vipikas">
-		INSERT INTO characters (username, password, last_ip)
-		VALUES ('#username#', '#hash(password & username, "SHA1")#', '#CGI.REMOTE_ADDR#')
+		INSERT INTO users (username, password, mail, gender, look, motto, last_online, rank, online, ip_last, auth_ticket, account_created, ip_reg)
+		VALUES ('#username#', '#hash(password, "MD5")#', '#form.reg_email#', '#gender#', '#figure#', 'Roc CF', UNIX_TIMESTAMP(), '1', '0', '#CGI.REMOTE_ADDR#', '', UNIX_TIMESTAMP(), '#CGI.REMOTE_ADDR#')
 	</cfquery>
 
 <cfloginuser 
