@@ -115,6 +115,9 @@ font-family:Segoe UI;
 color:#fff;
 float:right;
 }
+div.header > div.login > form > button:hover {
+background:#77973C;
+}
 div.welcomeText {
 width:960px;
 height:100px;
