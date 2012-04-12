@@ -31,7 +31,7 @@ $(document).ready(function(){
 			});
 			$('.header').animate({
 				height: '0px',
-				display: 'hidden'
+				visibility: 'hidden'
 			}, 'slow');
 		}
 	});
