@@ -8,6 +8,48 @@
 	<script type="text/javascript" src="js/frontpage.js"></script>
 	<!-- Meta shit here -->
 </head>
+
+<script type="text/javascript">
+var CurStory = 1;
+var interval = "";
+
+function TimedNews() {
+	var index = CurStory;
+	CurStory++;
+	index++;
+	$("#promo-bullets a").removeClass("active");
+	$(".promo-container").fadeOut("slow");
+	$("#promo-bullets a:nth-child(" + index + ")").addClass("active");
+	index++;
+	$(".promo-container:nth-child(" + index + ")").fadeIn("slow");
+	if (CurStory >= $('#promo-bullets a').size())
+		CurStory = 0;
+};
+
+$().ready(function() {
+	interval = setInterval("TimedNews()",6000);
+	
+	// Like a mother-fucking boss
+	$('#buttons a').click(function(event){
+		if (!$(event.target).hasClass("active")) {
+		var index = $("#buttons a").index(this);
+		CurStory = index+1;
+		index+=2;
+		clearInterval(interval);
+		interval = setInterval("TimedNews()",6000);
+		$("#buttons a").removeClass("selected");
+		$(".promo-container").fadeOut("slow");
+		$(event.target).addClass("selected");
+		$(".promo-container:nth-child(" + index + ")").fadeIn("slow");
+		if (CurStory >= $('#buttons a').size())
+			CurStory = 0;
+		}
+	});
+
+});
+</script>
+
+
 <body>
 	<div class="barline">
 		<a href="#">
@@ -29,25 +71,26 @@
 		<div class="welcomeText">
 			#sitename# Hotel... make friends, chillax, get noticed!
 		</div>
-		<div class="slider">
-			<ul>
-				<li style="background:url('img/news/cinema_promo.png');">
-					<ul class="buttons">
-						<a href="#"><li>0</li></a>
-						<a href="#"><li class="selected">1</li></a>
-						<a href="#"><li>2</li></a>
-						<a href="#"><li>3</li></a>
-					</ul>
-					<h3>
-						<span>The Habboon Cinema</span>
-						Curtains will fall
-					</h3>
-					<a href="#"><span class="link">
-						Go there <span class="arrow">è</span>
-					</span></a>
-				</li>
-			</ul>
+
+		<div id="slider">
+		    <div id="buttons">
+		    	<a href="#">0</a>
+				<a href="#" class="selected">1</a>
+		    	<a href="#">2</a>
+		    	<a href="#">3</a>
+		    </div>
+		    
+			<div class="article" style="background-image: url('img/news/cinema_promo.png'); ">
+			    <div class="article-content">
+			        <div class="title">#title#</div>
+			        <div class="body">#shortstory#</div>
+			    </div>
+				<div class="link">
+					<a href="##" onclick="ShowStory(#id#);">Read More &gt;&gt;&gt;</a>
+				</div>
+			</div>
 		</div>
+
 		<div class="stream">
 			Aids
 		</div>
