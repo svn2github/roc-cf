@@ -17,9 +17,9 @@ function TimedNews() {
 	var index = CurStory;
 	CurStory++;
 	index++;
-	$("#buttons a").removeClass("active");
+	$("#buttons a").removeClass("selected");
 	$(".article").fadeOut("slow");
-	$("#buttons a:nth-child(" + index + ")").addClass("active");
+	$("#buttons a:nth-child(" + index + ")").addClass("selected");
 	index++;
 	$(".article:nth-child(" + index + ")").fadeIn("slow");
 	if (CurStory >= $('#buttons a').size())
