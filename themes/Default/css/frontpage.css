@@ -1,0 +1,66 @@
+/*
+    Document  : Frontpage
+    Author    : Nominal
+    Date      : April 12th, 2012
+*/
+
+body {
+background:#EFEFEF;
+font-family:'Segoe UI';
+height:100%;
+position:relative;
+}
+body, body * {
+margin:0;
+padding:0;
+}
+@font-face {
+font-family:'Segoe UI';
+src:url('../segoeui.eot?') format('eot'),
+url('../segoeui.ttf') format('truetype');
+}
+div.wrapper {
+width:960px;
+height:auto;
+margin:auto auto;
+display:block;
+background:#fff;
+position:relative;
+}
+div.barline {
+height:40px;
+background:#333;
+position:relative;
+}
+div.barline > a > span.joinnow {
+display:block;
+height:15px;
+position:absolute;
+top:13px;
+left:20px;
+text-transform:uppercase;
+color:#CCC;
+font-size:11px;
+background:url('../img/frontpage/joinnow_arrow.png') no-repeat;
+padding:0 0 0 22px;
+}
+div.barline > a > span.joinnow:hover {
+color:#FFF;
+background:url('../img/frontpage/joinnow_arrow_over.png') no-repeat;
+}
+div.barline > h1 {
+width:65px;
+height:38px;
+overflow:hidden;
+text-indent:-999999px;
+display:block;
+position:absolute;
+top:1px;
+right:20px;
+background:url('../img/logo_small.png') no-repeat;
+}
+div.header{
+width:960px;
+height:244px;
+background:url('../img/frontpage/login_header.png') no-repeat;
+}
