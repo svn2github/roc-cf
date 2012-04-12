@@ -18,6 +18,11 @@ font-family:'Segoe UI';
 src:url('../segoeui.eot?') format('eot'),
 url('../segoeui.ttf') format('truetype');
 }
+@font-face {
+font-family:'Segoe UI Light';
+src:url('../segoeuil.eot?') format('eot'),
+url('../segoeuil.ttf') format('truetype');
+}
 div.wrapper {
 width:960px;
 height:100%;
@@ -66,6 +71,7 @@ width:960px;
 height:244px;
 margin:40px 0 0 0;
 background:url('../img/frontpage/login_header.png') no-repeat;
+position
 }
 div.header > div.login {
 width:250px;
@@ -73,4 +79,10 @@ height:224px;
 position:absolute;
 top:40px;
 right:30px;
+}
+div.header > div.login > h2 {
+font-size:37px;
+font-family:Segoe UI Light;
+color:#fff;
+font-weight:normal;
 }
