@@ -8,7 +8,6 @@ body {
 background:#EFEFEF;
 font-family:'Segoe UI';
 height:100%;
-position:relative;
 }
 body, body * {
 margin:0;
@@ -21,16 +20,19 @@ url('../segoeui.ttf') format('truetype');
 }
 div.wrapper {
 width:960px;
-height:auto;
-margin:auto auto;
+height:100%;
 display:block;
 background:#fff;
-position:relative;
+position:absolute;
+left:50%;
+margin:0 0 0 -480px;
 }
 div.barline {
+width:100%;
 height:40px;
 background:#333;
-position:relative;
+position:absolute;
+z-index:10;
 }
 div.barline > a > span.joinnow {
 display:block;
@@ -62,5 +64,13 @@ background:url('../img/logo_small.png') no-repeat;
 div.header{
 width:960px;
 height:244px;
+margin:40px 0 0 0;
 background:url('../img/frontpage/login_header.png') no-repeat;
+}
+div.header > div.login {
+width:250px;
+height:224px;
+position:absolute;
+top:40px;
+right:30px;
 }
