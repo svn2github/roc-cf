@@ -103,3 +103,14 @@ font-family:Segoe UI;
 div.header > div.login > form > input:focus {
 background:#fff;
 }
+div.header > div.login > form > button {
+width:100px;
+height:30px;
+border:none;
+background:#88AE44;
+margin:10px 0 0 0;
+font-size:14px;
+font-family:Segoe UI;
+color:#fff;
+float:right;
+}
