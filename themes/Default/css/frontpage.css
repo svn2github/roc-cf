@@ -56,16 +56,15 @@ div.barline > a > span.joinnow:hover {
 color:#FFF;
 background:url('../img/frontpage/joinnow_arrow_over.png') no-repeat;
 }
-div.barline > h1 {
+div.barline > a > span.logo {
 width:65px;
 height:38px;
 overflow:hidden;
-text-indent:-999999px;
-display:block;
 position:absolute;
 top:1px;
-right:20px;
+left:50%;
 background:url('../img/logo_small.png') no-repeat;
+margin:0 0 0 410px;
 }
 div.header{
 width:960px;
