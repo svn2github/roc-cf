@@ -205,7 +205,7 @@ color:#7AA151;
 font-family:wingdings;
 font-size:13px;
 }
-div#stream {
+div.stream {
 width:240px;
 height:250px;
 margin:0 30px 0 0;
