@@ -25,7 +25,7 @@ url('../font/segoeuil.ttf') format('truetype');
 }
 div.wrapper {
 width:960px;
-display:block;
+height:100%;
 background:#fff;
 position:absolute;
 left:50%;
@@ -40,16 +40,17 @@ position:relative;
 z-index:10;
 }
 div.barline > a > span.joinnow {
-display:block;
 height:15px;
+width:938px;
 position:absolute;
 top:13px;
-left:20px;
+left:50%;
 text-transform:uppercase;
 color:#CCC;
 font-size:11px;
 background:url('../img/frontpage/joinnow_arrow.png') no-repeat;
 padding:0 0 0 22px;
+margin:0 0 0 -480px;
 }
 div.barline > a > span.joinnow:hover {
 color:#FFF;
@@ -113,9 +114,6 @@ font-size:14px;
 font-family:Segoe UI;
 color:#fff;
 float:right;
-}
-div.header > div.login > form > button:hover {
-background:#77973C;
 }
 div.welcomeText {
 display:block;
