@@ -121,9 +121,9 @@ div.header > div.login {
 width:220px;
 height:224px;
 padding:0 15px 0 15px;
-position:absolute;
-top:0;
-right:30px;
+position:relative;
+top:-20px;
+left:680px;
 background:url('../img/frontpage/login_bg.png');
 }
 div.header > div.login > h2 {
