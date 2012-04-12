@@ -15,13 +15,13 @@ padding:0;
 }
 @font-face {
 font-family:'Segoe UI';
-src:url('../segoeui.eot?') format('eot'),
-url('../segoeui.ttf') format('truetype');
+src:url('../font/segoeui.eot?') format('eot'),
+url('../font/segoeui.ttf') format('truetype');
 }
 @font-face {
 font-family:'Segoe UI Light';
-src:url('../segoeuil.eot?') format('eot'),
-url('../segoeuil.ttf') format('truetype');
+src:url('../font/segoeuil.eot?') format('eot'),
+url('../font/segoeuil.ttf') format('truetype');
 }
 div.wrapper {
 width:960px;
@@ -71,18 +71,35 @@ width:960px;
 height:244px;
 margin:40px 0 0 0;
 background:url('../img/frontpage/login_header.png') no-repeat;
-position
+position:absolute;
 }
 div.header > div.login {
-width:250px;
+width:220px;
 height:224px;
+padding:0 15px 0 15px;
 position:absolute;
-top:40px;
+top:0;
 right:30px;
+background:url('../img/frontpage/login_bg.png');
 }
 div.header > div.login > h2 {
 font-size:37px;
 font-family:Segoe UI Light;
 color:#fff;
 font-weight:normal;
+margin:20px 0 0 0;
+}
+div.header > div.login > form > input {
+width:200px;
+height:30px;
+border:none;
+margin:10px 0 0 0;
+padding:0 10px 0 10px;
+background:#DBE4E7;
+color:#333;
+font-size:14px;
+font-family:Segoe UI;
+}
+div.header > div.login > form > input:focus {
+background:#fff;
 }
