@@ -13,6 +13,10 @@ body, body * {
 margin:0;
 padding:0;
 }
+a {
+color:inherit;
+text-decoration:none;
+}
 @font-face {
 font-family:'Segoe UI';
 src:url('../font/segoeui.eot?') format('eot'),
@@ -38,6 +42,7 @@ height:40px;
 background:#333;
 position:relative;
 z-index:10;
+overflow:hidden;
 }
 div.barline > a > span.joinnow {
 height:15px;
@@ -66,7 +71,45 @@ left:50%;
 background:url('../img/logo_small.png') no-repeat;
 margin:0 0 0 410px;
 }
-div.header{
+div.barline > .content {
+width:960px;
+height:170px;
+margin:40px auto 0 auto;
+}
+div.barline > .content > .column {
+width:210px;
+height:170px;
+float:left;
+}
+div.barline > .content > .column > h3 {
+font-family:Segoe UI Light;
+font-size:42px;
+color:#fff;
+}
+div.barline > .content > .column > span.or {
+display:block;
+margin:30px 0 30px 0;
+font-family:Segoe UI;
+font-size:14px;
+color:#fff;
+}
+div.barline > .content > .column > a > span.facebookConnect {
+cursor:pointer;
+display:block;
+width:210px;
+height:40px;
+font-family:Segoe UI;
+font-size:16px;
+color:#fff;
+line-height:40px;
+background:#254478;
+text-align:center;
+text-decoration:none;
+}
+div.barline > .content > .column > a > span.facebookConnect:hover {
+background:#30589A;
+}
+div.header {
 width:960px;
 height:244px;
 margin:0 0 0 0;
@@ -113,6 +156,10 @@ font-size:14px;
 font-family:Segoe UI;
 color:#fff;
 float:right;
+cursor:pointer;
+}
+div.header > div.login > form > button:hover {
+background:#7EA03F
 }
 div.welcomeText {
 display:block;
