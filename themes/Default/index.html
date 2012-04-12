@@ -17,12 +17,12 @@ function TimedNews() {
 	var index = CurStory;
 	CurStory++;
 	index++;
-	$("#promo-bullets a").removeClass("active");
-	$(".promo-container").fadeOut("slow");
-	$("#promo-bullets a:nth-child(" + index + ")").addClass("active");
+	$("#buttons a").removeClass("active");
+	$(".article").fadeOut("slow");
+	$("#buttons a:nth-child(" + index + ")").addClass("active");
 	index++;
-	$(".promo-container:nth-child(" + index + ")").fadeIn("slow");
-	if (CurStory >= $('#promo-bullets a').size())
+	$(".article:nth-child(" + index + ")").fadeIn("slow");
+	if (CurStory >= $('#buttons a').size())
 		CurStory = 0;
 };
 
@@ -38,9 +38,9 @@ $().ready(function() {
 		clearInterval(interval);
 		interval = setInterval("TimedNews()",6000);
 		$("#buttons a").removeClass("selected");
-		$(".promo-container").fadeOut("slow");
+		$(".article").fadeOut("slow");
 		$(event.target).addClass("selected");
-		$(".promo-container:nth-child(" + index + ")").fadeIn("slow");
+		$(".article:nth-child(" + index + ")").fadeIn("slow");
 		if (CurStory >= $('#buttons a').size())
 			CurStory = 0;
 		}
@@ -74,8 +74,8 @@ $().ready(function() {
 
 		<div id="slider">
 		    <div id="buttons">
-		    	<a href="#">0</a>
-				<a href="#" class="selected">1</a>
+		    	<a href="#" class="selected">0</a>
+				<a href="#">1</a>
 		    	<a href="#">2</a>
 		    	<a href="#">3</a>
 		    </div>
@@ -86,7 +86,37 @@ $().ready(function() {
 			        <div class="body">#shortstory#</div>
 			    </div>
 				<div class="link">
-					<a href="##" onclick="ShowStory(#id#);">Read More <span class="arrow">è</span></a>
+					<a href="##">Read More <span class="arrow">è</span></a>
+				</div>
+			</div>
+
+			<div class="article" style="background-image: url('img/news/platinum_promo.png'); display:none ">
+			    <div class="article-content">
+			        <div class="title">#title#</div>
+			        <div class="body">#shortstory#</div>
+			    </div>
+				<div class="link">
+					<a href="##">Read More <span class="arrow">è</span></a>
+				</div>
+			</div>
+
+			<div class="article" style="background-image: url('img/news/rhythmthief_promo.png'); display:none ">
+			    <div class="article-content">
+			        <div class="title">#title#</div>
+			        <div class="body">#shortstory#</div>
+			    </div>
+				<div class="link">
+					<a href="##">Read More <span class="arrow">è</span></a>
+				</div>
+			</div>
+
+			<div class="article" style="background-image: url('img/news/vip_promo.png'); display:none ">
+			    <div class="article-content">
+			        <div class="title">#title#</div>
+			        <div class="body">#shortstory#</div>
+			    </div>
+				<div class="link">
+					<a href="##">Read More <span class="arrow">è</span></a>
 				</div>
 			</div>
 		</div>
