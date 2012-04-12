@@ -115,6 +115,7 @@ height:244px;
 margin:0 0 0 0;
 background:url('../img/frontpage/login_header.png') no-repeat;
 display:block;
+overflow:hidden;
 }
 div.header > div.login {
 width:220px;

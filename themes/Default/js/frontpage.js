@@ -12,6 +12,10 @@ $(document).ready(function(){
 			},function(){
 				$("span.joinnow").css('background', 'url(img/frontpage/joinnow_arrow.png) no-repeat');
 			});
+			$('.header').animate({
+				height: '250px',
+				visibility: 'visible'
+			}, 'slow');
 		}
 		else
 		{
@@ -25,6 +29,10 @@ $(document).ready(function(){
 			},function(){
 				$("span.joinnow").css('background', 'url(img/frontpage/joinnow_arrow_flip.png) no-repeat');
 			});
+			$('.header').animate({
+				height: '0px',
+				visibility: 'hidden'
+			}, 'slow');
 		}
 	});
 });
