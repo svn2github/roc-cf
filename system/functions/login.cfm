@@ -6,21 +6,16 @@
 	<cflocation url="index.cfm?error=fields" Addtoken="No">
 </cfif>
 
-<cfquery name = "userexists">
-	SELECT username
-	FROM characters
-	WHERE username = '#form.username#'
+<cfquery name = "userinfo">
+	SELECT *
+	FROM users
+	WHERE username = <CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
 </cfquery>
-<cfif not userexists.RecordCount>
+<cfif not userinfo.RecordCount>
 	<cflocation url="index.cfm?error=username" Addtoken="No">
 </cfif>
 
-<cfquery name = "passcheck">
-	SELECT *
-	FROM characters
-	WHERE username = '#form.username#'
-</cfquery>
-<cfif #passcheck.password# eq hash(#form.password#, "MD5")>
+<cfif #userinfo.password# eq hash(#form.password#, "MD5")>
 <cfloginuser 
     name = "#form.username#" 
     password = "#form.password#" 
