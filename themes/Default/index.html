@@ -48,8 +48,8 @@ $().ready(function() {
 	});
 
 	$('.column > .proceed').click(function(event){
-		$("form .column:nth-child(" + RegStep + ")").animate({"left": "-=280px"}, "slow");
-		$("form .column:nth-child(" + (RegStep + 1) + ")").animate({"left": "-=280px"}, "slow");
+		$("form .column:nth-child(" + RegStep + ")").animate({"left": "-=240px"}, "slow");
+		$("form .column:nth-child(" + (RegStep + 1) + ")").animate({"left": "-=240px"}, "slow");
 	});
 
 });
@@ -82,10 +82,10 @@ $().ready(function() {
 				<div class="column">
 					<input type="password" name="password" placeholder="Password" />
 					<input type="password" name="password2" placeholder="Repeat Password" />
-					<div class="proceed">Next</div>
+					<div class="proceed">Complete</div>
 				</div>
 			</form>
-			<div class="image">
+			<div class="hideColumn">
 			</div>
 		</div>
 	</div>
