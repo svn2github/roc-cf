@@ -8,9 +8,14 @@
 	<cflocation url="../../../index.cfm?error=reg_username" Addtoken="No">
 </cfif>
 
-<cfif StructKeyExists(Form, "password") and StructKeyExists(Form, "password2")>
+<cfif StructKeyExists(Form, "email") and StructKeyExists(Form, "email2") and form.email eq email2>
+	<cfset email = REReplace(form.email, "[^A-Za-z0-9_]", "", "ALL")>
+<cfelse>
+	<cflocation url="../../../index.cfm?error=reg_email" Addtoken="No">
+</cfif>
+
+<cfif StructKeyExists(Form, "password") and StructKeyExists(Form, "password2") and password eq password2>
 	<cfset password = REReplace(form.password, "[^A-Za-z0-9_]", "", "ALL")>
-	<cfset password2 = REReplace(form.password2, "[^A-Za-z0-9_]", "", "ALL")>
 <cfelse>
 	<cflocation url="../../../index.cfm?error=reg_password" Addtoken="No">
 </cfif>
@@ -42,7 +47,7 @@
 
 <cfquery name = "register">
 	INSERT INTO users (username, password, mail, gender, look, motto, last_online, rank, online, ip_last, auth_ticket, account_created, ip_reg)
-	VALUES ('#username#', '#hash(password, "MD5")#', '#form.reg_email#', '#gender#', '#figure#', 'Roc CF', UNIX_TIMESTAMP(), '1', '0', '#CGI.REMOTE_ADDR#', '', UNIX_TIMESTAMP(), '#CGI.REMOTE_ADDR#')
+	VALUES (<CFQUERYPARAM VALUE="#username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, <CFQUERYPARAM VALUE="#hash(password, "MD5")#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, <CFQUERYPARAM VALUE="#email#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, '#gender#', '#figure#', 'Roc CF', UNIX_TIMESTAMP(), '1', '0', '#CGI.REMOTE_ADDR#', '', UNIX_TIMESTAMP(), '#CGI.REMOTE_ADDR#')
 </cfquery>
 
 <cfloginuser 
