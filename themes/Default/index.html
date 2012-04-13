@@ -47,10 +47,24 @@ $().ready(function() {
 		}
 	});
 
-	$('.column > .proceed').click(function(event){
-		$("form .column:nth-child(" + RegStep + ")").animate({"left": "-=240px"}, "slow");
-		$("form .column:nth-child(" + (RegStep + 1) + ")").animate({"left": "-=240px"}, "slow");
+	function null_check(val)
+		{
+			return val == ' ' || val == null;
+		}
+		//Like a better mother fucking boss -Cobe
+		$('.column > .proceed').click(function(event)
+		{		
+			if (null_check($('.username').val()) || null_check($('.email').val()) || null_check($('.rep_email').val()))
+				{
+					return;
+				}
+			else
+				{
+					$("form .column:nth-child(" + RegStep + ")").animate({"left": "-=240px"}, "slow");
+					$("form .column:nth-child(" + (RegStep + 1) + ")").animate({"left": "-=240px"}, "slow"); 
+				}
 	});
+
 
 });
 </script>
@@ -74,9 +88,9 @@ $().ready(function() {
 			</div>
 			<form method="post" action="register_submit">
 				<div class="column">
-					<input type="text" name="username" placeholder="Username" />
-					<input type="text" name="email" placeholder="E-mail" />
-					<input type="text" name="rep_email" placeholder="Repeat E-mail" />
+					<input type="text" class="username" name="username" placeholder="Username" />
+					<input type="text" class="email" name="email" placeholder="E-mail" />
+					<input type="text" class="rep_email" name="rep_email" placeholder="Repeat E-mail" />
 					<div class="proceed">Next</div>
 				</div>
 				<div class="column">
@@ -154,7 +168,10 @@ $().ready(function() {
 		</div>
 
 		<div class="stream">
-			Aids
+			<h3>What's going on?</h3>
+			<div class="stream-content">
+				
+			</div>
 		</div>
 		
 	</div>
