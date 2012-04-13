@@ -1,4 +1,6 @@
-﻿<cfif StructKeyExists(session, "username")>
+﻿<!-- TO-DO: DSN Configuration File -->
+
+<cfif StructKeyExists(session, "username")>
 	<cflocation url = "../../../main.cfm" Addtoken="No">
 </cfif>
 
@@ -20,8 +22,15 @@
 	<!-- Set Regular Session Variables -->
 	<cfset session.userid = CheckLogin.id>
 	<cfset session.username = CheckLogin.username>
-	<Cfset session.useremail = CheckLogin.mail>
+	<cfset session.useremail = CheckLogin.mail>
+	<!-- Add additional session variables if needed to prevent having to use lots of MySQL Queries. -->
 
+	<cfquery name = "UpdateLastLogin" datasource = "#DSN#">
+		UPDATE users
+		SET last_online = UNIX_TIMESTAMP(), ip_last = '#CGI.REMOTE_ADDR#'
+		WHERE username = <CFQUERYPARAM VALUE="#form.login_username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
+	</cfquery>
+	<cflocation url = "../../../main.cfm" Addtoken="No">	
 <cfelse>
-		<cflocation url="../../../index.cfm?error=password" Addtoken="No">
+	<cflocation url="../../../index.cfm?error=password" Addtoken="No">
 </cfif>
