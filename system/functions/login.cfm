@@ -1,26 +1,24 @@
-﻿<cfif IsUserLoggedIn()>
+﻿<cfif StructKeyExists(session, "username")>
 	<cflocation url = "../../../main.cfm" Addtoken="No">
 </cfif>
 
-<cfif not IsDefined('form.username') or not IsDefined('form.password')>
+<cfif NOT StructKeyExists(form, "login_username") OR NOT StructKeyExists(form, "login_password')>
 	<cflocation url="../../../index.cfm?error=fields" Addtoken="No">
 </cfif>
 
-<cfquery name = "userinfo">
-	SELECT *
-	FROM users
-	WHERE username = <CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
+<cfquery name = "CheckLogin">
+	SELECT password FROM users
+	WHERE username = <CFQUERYPARAM VALUE="#form.login_username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
+	LIMIT 1
 </cfquery>
-<cfif not userinfo.RecordCount>
+<cfif NOT CheckLogin.RecordCount>
 	<cflocation url="../../../index.cfm?error=username" Addtoken="No">
 </cfif>
 
-<cfif #userinfo.password# eq hash(#form.password#, "MD5")>
-<cfloginuser 
-    name = "#form.username#" 
-    password = "#form.password#" 
-    roles = "roles">
-	<cflocation url="main.cfm" Addtoken="No">
+<cfif hash(form.password, "MD5") is CheckLogin.password>
+	
+	<!-- Sessions Here -->
+
 <cfelse>
-	<cflocation url="../../../index.cfm?error=password" Addtoken="No">
+		<cflocation url="../../../index.cfm?error=password" Addtoken="No">
 </cfif>
