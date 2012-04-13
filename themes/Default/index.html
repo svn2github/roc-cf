@@ -4,7 +4,7 @@
 	<title>Welcome to #sitename# Hotel - make friends, chillax, get noticed!</title>
 	<link rel="stylesheet" href="css/frontpage.css" />
 	<link rel="icon" type="image/png" href="img/roc.ico">
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script type="text/javascript" src="js/frontpage.js"></script>
 	<!-- Meta shit here -->
 </head>
@@ -12,6 +12,7 @@
 <script type="text/javascript">
 var CurStory = 1;
 var interval = "";
+var RegStep = 1;
 
 function TimedNews() {
 	var index = CurStory;
@@ -46,6 +47,11 @@ $().ready(function() {
 		}
 	});
 
+	$('.column > .proceed').click(function(event){
+		$("form .column:nth-child(" + RegStep + ")").animate({"left": "-=280px"}, "slow");
+		$("form .column:nth-child(" + (RegStep + 1) + ")").animate({"left": "-=280px"}, "slow");
+	});
+
 });
 </script>
 
@@ -71,6 +77,11 @@ $().ready(function() {
 					<input type="text" name="username" placeholder="Username" />
 					<input type="text" name="email" placeholder="E-mail" />
 					<input type="text" name="rep_email" placeholder="Repeat E-mail" />
+					<div class="proceed">Next</div>
+				</div>
+				<div class="column">
+					<input type="password" name="password" placeholder="Password" />
+					<input type="password" name="password2" placeholder="Repeat Password" />
 					<div class="proceed">Next</div>
 				</div>
 			</form>
