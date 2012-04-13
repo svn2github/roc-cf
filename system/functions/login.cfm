@@ -7,7 +7,7 @@
 </cfif>
 
 <cfquery name = "CheckLogin">
-	SELECT password FROM users
+	SELECT id, username, mail, password FROM users
 	WHERE username = <CFQUERYPARAM VALUE="#form.login_username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
 	LIMIT 1
 </cfquery>
@@ -17,7 +17,10 @@
 
 <cfif hash(form.password, "MD5") is CheckLogin.password>
 	
-	<!-- Sessions Here -->
+	<!-- Set Regular Session Variables -->
+	<cfset session.userid = CheckLogin.id>
+	<cfset session.username = CheckLogin.username>
+	<Cfset session.useremail = CheckLogin.mail>
 
 <cfelse>
 		<cflocation url="../../../index.cfm?error=password" Addtoken="No">
