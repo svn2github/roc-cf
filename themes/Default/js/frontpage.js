@@ -5,6 +5,7 @@ $(document).ready(function(){
 			$('.barline').animate({
 				height: '40px'
 			}, 'slow');
+			$('span.joinnow').text('Join now');
 			$("span.joinnow").removeClass("active");
 			$("span.joinnow").css('background', 'url(img/frontpage/joinnow_arrow.png) no-repeat');
 			$("span.joinnow").hover(function(){
@@ -22,6 +23,7 @@ $(document).ready(function(){
 			$('.barline').animate({
 				height: '264px'
 			}, 'slow');
+			$('span.joinnow').text('Sign-in');
 			$("span.joinnow").addClass("active");
 			$("span.joinnow").css('background', 'url(img/frontpage/joinnow_arrow_flip.png) no-repeat');
 			$("span.joinnow").hover(function(){
