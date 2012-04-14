@@ -6,7 +6,8 @@
 	<link rel="icon" type="image/png" href="img/roc.ico">
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script type="text/javascript" src="js/frontpage.js"></script>
-	<!-- Meta shit here -->
+	<meta name="description" content="Powered by RocCF - an open-source Coldfusion content management system by Otaku-Studios." />
+	<meta name="keywords" content="roc, roccf, roc-cf, cf, coldfusion, habbo hotel, virtual, world, social network, free, community, avatar, chat, online, teen, roleplaying, join, social, groups, forums, safe, play, games, online, friends, teens, rares, rare furni, collecting, create, collect, connect, furni, furniture, pets, room design, sharing, expression, badges, hangout, music, celebrity, celebrity visits, celebrities, mmo, mmorpg, massively multiplayer" />
 </head>
 
 <script type="text/javascript">
@@ -47,22 +48,22 @@ $().ready(function() {
 		}
 	});
 
-	function null_check(val)
+	/*function null_check(val)
 		{
 			return val == ' ' || val == null;
-		}
+		}*/
 		//Like a better mother fucking boss -Cobe
 		$('.column > .proceed').click(function(event)
 		{		
-			if (null_check($('.username').val()) || null_check($('.email').val()) || null_check($('.rep_email').val()))
+			/*if (null_check($('.username').val()) || null_check($('.email').val()) || null_check($('.rep_email').val()))
 				{
 					return;
 				}
 			else
-				{
+				{*/
 					$("form .column:nth-child(" + RegStep + ")").animate({"left": "-=240px"}, "slow");
 					$("form .column:nth-child(" + (RegStep + 1) + ")").animate({"left": "-=240px"}, "slow"); 
-				}
+				//}
 	});
 
 
@@ -170,7 +171,42 @@ $().ready(function() {
 		<div class="stream">
 			<h3>What's going on?</h3>
 			<div class="stream-content">
-				
+				<div class="story">
+					<div class="story-avatar" style="background:url('img/frontpage/stream-avatar.gif') -16px -20px no-repeat">
+					</div>
+					<div class="story-desc">
+						Nominal has just earned an achievement. <a href="##" class="link">Go there</a>
+					</div>
+				</div>
+				<div class="story">
+					<div class="story-avatar" style="background:url('img/frontpage/stream-avatar.gif') -16px -20px no-repeat">
+					</div>
+					<div class="story-desc">
+						Nominal has just earned an achievement. <a href="##" class="link">Go there</a>
+					</div>
+				</div>
+				<div class="story">
+					<div class="story-avatar" style="background:url('img/frontpage/stream-avatar.gif') -16px -20px no-repeat">
+					</div>
+					<div class="story-desc">
+						Nominal has just earned an achievement. <a href="##" class="link">Go there</a>
+					</div>
+				</div>
+				<div class="story">
+					<div class="story-avatar" style="background:url('img/frontpage/stream-avatar.gif') -16px -20px no-repeat">
+					</div>
+					<div class="story-desc">
+						Nominal has just earned an achievement. <a href="##" class="link">Go there</a>
+					</div>
+				</div>
+				<div class="story">
+					<div class="story-avatar" style="background:url('img/frontpage/stream-avatar.gif') -16px -20px no-repeat">
+					</div>
+					<div class="story-desc">
+						Nominal has just earned an achievement. <a href="##" class="link">Go there</a>
+					</div>
+				</div>
+				<a href="##" class="more">Load more...</a>
 			</div>
 		</div>
 		

@@ -316,7 +316,7 @@ font-size:13px;
 }
 div.stream {
 width:240px;
-height:210px;
+height:250px;
 margin:0 30px 0 0;
 background:#DBDBDB;
 float:left;
@@ -326,10 +326,10 @@ div.stream > h3 {
 font-family:Segoe UI Light;
 font-size:25px;
 color:#333;
-padding:15px 0 0 0;
+padding:15px 0 0 20px;
 background:#DBDBDB;
 width:200px;
-height:55px;
+height:50px;
 display:block;
 position:relative;
 }
@@ -341,7 +341,44 @@ div::-webkit-scrollbar-thumb {
 background:#CCCCCC;
 }
 div.stream > .stream-content {
-padding:0 25px 25px 25px;
+padding:0 20px 25px 20px;
 overflow-y:scroll;
 overflow-x:hidden;
+height:160px;
+}
+div.stream > .stream-content > .story {
+width:200px;
+height:40px;
+margin:0 0 10px 0;
+}
+div.stream > .stream-content > .story > .story-avatar {
+width:40px;
+height:40px;
+margin:0 5px 0 0;
+float:left;
+}
+div.stream > .stream-content > .story > .story-desc {
+width:155px;
+height:40px;
+float:left;
+font-family:Segoe UI;
+font-size:11px;
+color:#333;
+}
+div.stream > .stream-content > .story > .story-desc > a.link {
+color:#5D878C;
+display:block;
+}
+div.stream > .stream-content > a.more {
+display:block;
+width:auto;
+height:auto;
+padding:2px;
+font-family:Segoe UI;
+font-size:15px;
+color:#333;
+}
+div.stream > .stream-content > a.more:hover {
+color:#fff;
+background:#bcc;
 }
