@@ -32,7 +32,7 @@ url('../font/segoeuil.ttf') format('truetype');
 }
 div.wrapper {
 width:960px;
-height:100%;
+height:auto;
 background:#fff;
 position:absolute;
 left:50%;
@@ -375,10 +375,24 @@ width:auto;
 height:auto;
 padding:2px;
 font-family:Segoe UI;
-font-size:15px;
+font-size:13px;
 color:#333;
+border-bottom:1px solid #bcc;
 }
 div.stream > .stream-content > a.more:hover {
 color:#fff;
 background:#bcc;
+border-bottom:1px solid #bcc;
+}
+div.popularTags {
+width:900px;
+height:100px;
+padding:30px;
+clear:both;
+}
+div.popularTags > h2 {
+font-family:Segoe UI Light;
+font-size:25px;
+color:#333;
+padding:0 0 0 10px;
 }
