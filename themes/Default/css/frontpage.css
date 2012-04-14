@@ -394,5 +394,22 @@ div.popularTags > h2 {
 font-family:Segoe UI Light;
 font-size:25px;
 color:#333;
-padding:0 0 0 10px;
+padding:0 0 10px 10px;
+}
+div.popularTags > .container {
+width:900px;
+clear:both;
+}
+div.popularTags > .container > .tag {
+width:140px;
+height:25px;
+line-height:25px;
+background:#E5E5E5;
+float:left;
+margin:8px 15px 0 0;
+padding:0 10px 0 10px;
+text-transform:capitalize;
+font-family:Segoe UI;
+font-size:12px;
+color:#333;
 }
