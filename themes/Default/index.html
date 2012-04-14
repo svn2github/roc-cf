@@ -28,6 +28,18 @@ function TimedNews() {
 		CurStory = 0;
 };
 
+function validateEmail()
+{
+	var x=document.forms["registration"]["email"].value;
+	var atpos=x.indexOf("@");
+	var dotpos=x.lastIndexOf(".");
+	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+	{
+		alert("Not a valid e-mail address");
+		return false;
+	}
+}
+
 $().ready(function() {
 	interval = setInterval("TimedNews()",6000);
 	
@@ -47,7 +59,17 @@ $().ready(function() {
 			CurStory = 0;
 		}
 	});
+	
+	$('.email').keypress(function(e){
+		if(e.which == 13){
+			validateEmail();
+		}
+	});
 
+	$('.email').blur(function(e){
+		validateEmail();
+	});
+	
 	/*function null_check(val)
 		{
 			return val == ' ' || val == null;
@@ -87,7 +109,7 @@ $().ready(function() {
 					Connect with Facebook
 				</span></a>
 			</div>
-			<form method="post" action="register_submit">
+			<form method="post" name="registration" action="register_submit">
 				<div class="column">
 					<input type="text" class="username" name="username" placeholder="Username" />
 					<input type="text" class="email" name="email" placeholder="E-mail" />
