@@ -35,8 +35,27 @@ function validateEmail()
 	var dotpos=x.lastIndexOf(".");
 	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
 	{
-		alert("Not a valid e-mail address");
-		return false;
+		$('.email').removeClass('valid');
+		$('.email').addClass('error');
+	}
+	else
+	{
+		$('.email').removeClass('error');
+		$('.email').addClass('valid');
+	}
+}
+
+function validateEmail2()
+{
+	if ($('.email').val() != $('.rep_email').val())
+	{
+		$('.rep_email').removeClass('valid');
+		$('.rep_email').addClass('error');
+	}
+	else
+	{
+		$('.rep_email').removeClass('error');
+		$('.rep_email').addClass('valid');
 	}
 }
 
@@ -69,25 +88,22 @@ $().ready(function() {
 	$('.email').blur(function(e){
 		validateEmail();
 	});
-	
-	/*function null_check(val)
-		{
-			return val == ' ' || val == null;
-		}*/
-		//Like a better mother fucking boss -Cobe
-		$('.column > .proceed').click(function(event)
-		{		
-			/*if (null_check($('.username').val()) || null_check($('.email').val()) || null_check($('.rep_email').val()))
-				{
-					return;
-				}
-			else
-				{*/
-					$("form .column:nth-child(" + RegStep + ")").animate({"left": "-=240px"}, "slow");
-					$("form .column:nth-child(" + (RegStep + 1) + ")").animate({"left": "-=240px"}, "slow"); 
-				//}
+
+	$('.rep_email').keypress(function(e){
+		if(e.which == 13){
+			validateEmail2();
+		}
 	});
 
+	$('.rep_email').blur(function(e){
+		validateEmail2();
+	});
+	
+	$('.column > .proceed').click(function(event)
+	{		
+		$("form .column:nth-child(" + RegStep + ")").animate({"left": "-=240px"}, "slow");
+		$("form .column:nth-child(" + (RegStep + 1) + ")").animate({"left": "-=240px"}, "slow"); 
+	});
 
 });
 </script>
