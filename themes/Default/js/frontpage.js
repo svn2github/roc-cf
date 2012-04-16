@@ -1,4 +1,97 @@
+var CurStory = 1;
+var interval = "";
+var RegStep = 1;
+
+function TimedNews() {
+	var index = CurStory;
+	CurStory++;
+	index++;
+	$("#buttons a").removeClass("selected");
+	$(".article").fadeOut("slow");
+	$("#buttons a:nth-child(" + index + ")").addClass("selected");
+	index++;
+	$(".article:nth-child(" + index + ")").fadeIn("slow");
+	if (CurStory >= $('#buttons a').size())
+		CurStory = 0;
+};
+
+function validateEmail()
+{
+	var x=document.forms["registration"]["email"].value;
+	var atpos=x.indexOf("@");
+	var dotpos=x.lastIndexOf(".");
+	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+	{
+		$('.email').removeClass('valid');
+		$('.email').addClass('error');
+	}
+	else
+	{
+		$('.email').removeClass('error');
+		$('.email').addClass('valid');
+	}
+}
+
+function validateEmail2()
+{
+	if ($('.email').val() != $('.rep_email').val())
+	{
+		$('.rep_email').removeClass('valid');
+		$('.rep_email').addClass('error');
+	}
+	else
+	{
+		$('.rep_email').removeClass('error');
+		$('.rep_email').addClass('valid');
+	}
+}
+
 $(document).ready(function(){
+	interval = setInterval("TimedNews()",6000);
+	
+	// Like a mother-fucking boss
+	$('#buttons a').click(function(event){
+		if (!$(event.target).hasClass("active")) {
+		var index = $("#buttons a").index(this);
+		CurStory = index+1;
+		index+=2;
+		clearInterval(interval);
+		interval = setInterval("TimedNews()",6000);
+		$("#buttons a").removeClass("selected");
+		$(".article").fadeOut("slow");
+		$(event.target).addClass("selected");
+		$(".article:nth-child(" + index + ")").fadeIn("slow");
+		if (CurStory >= $('#buttons a').size())
+			CurStory = 0;
+		}
+	});
+	
+	$('.email').keypress(function(e){
+		if(e.which == 13){
+			validateEmail();
+		}
+	});
+
+	$('.email').blur(function(e){
+		validateEmail();
+	});
+
+	$('.rep_email').keypress(function(e){
+		if(e.which == 13){
+			validateEmail2();
+		}
+	});
+
+	$('.rep_email').blur(function(e){
+		validateEmail2();
+	});
+	
+	$('.column > .proceed').click(function(event)
+	{		
+		$("form .column:nth-child(" + RegStep + ")").animate({"left": "-=240px"}, "slow");
+		$("form .column:nth-child(" + (RegStep + 1) + ")").animate({"left": "-=240px"}, "slow"); 
+	});
+
 	$("span.joinnow").click(function(){
 		if ($("span.joinnow").hasClass("active"))
 		{
