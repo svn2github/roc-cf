@@ -1,11 +1,13 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<title>Welcome to #sitename# Hotel - make friends, chillax, get noticed!</title>
-	<link rel="stylesheet" href="css/frontpage.css" />
-	<link rel="icon" type="image/png" href="img/roc.ico">
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
-	<script type="text/javascript" src="js/frontpage.js"></script>
+	<cfoutput>
+		<title>Welcome to #sitename# Hotel - make friends, chillax, get noticed!</title>
+		<link rel="stylesheet" href="/themes/#theme#/css/frontpage.css" />
+		<link rel="icon" type="image/png" href="/themes/#theme#/themes/Default/img/roc.ico">
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script type="text/javascript" src="/themes/#theme#/js/frontpage.js"></script>
+	</cfoutput>
 	<meta name="description" content="Powered by RocCF - an open-source Coldfusion content management system by Otaku-Studios." />
 	<meta name="keywords" content="roc, roccf, roc-cf, cf, coldfusion, habbo hotel, virtual, world, social network, free, community, avatar, chat, online, teen, roleplaying, join, social, groups, forums, safe, play, games, online, friends, teens, rares, rare furni, collecting, create, collect, connect, furni, furniture, pets, room design, sharing, expression, badges, hangout, music, celebrity, celebrity visits, celebrities, mmo, mmorpg, massively multiplayer" />
 </head>
@@ -55,7 +57,9 @@
 			</div>
 		</div>
 		<div class="welcomeText">
-			#sitename# Hotel... make friends, chillax, get noticed!
+			<cfoutput>
+				#sitename# Hotel... make friends, chillax, get noticed!
+			</cfoutput>
 		</div>
 
 		<div id="slider">
@@ -66,7 +70,7 @@
 		    	<a>3</a>
 		    </div>
 		    
-			<div class="article" style="background-image: url('img/news/cinema_promo.png'); ">
+			<div class="article" style="background-image: url('themes/Default/img/news/cinema_promo.png'); ">
 			    <div class="article-content">
 			        <div class="title">#title#</div>
 			        <div class="body">#shortstory#</div>
@@ -76,7 +80,7 @@
 				</div>
 			</div>
 
-			<div class="article" style="background-image: url('img/news/platinum_promo.png'); display:none ">
+			<div class="article" style="background-image: url('themes/Default/img/news/platinum_promo.png'); display:none ">
 			    <div class="article-content">
 			        <div class="title">#title#</div>
 			        <div class="body">#shortstory#</div>
@@ -86,7 +90,7 @@
 				</div>
 			</div>
 
-			<div class="article" style="background-image: url('img/news/rhythmthief_promo.png'); display:none ">
+			<div class="article" style="background-image: url('themes/Default/img/news/rhythmthief_promo.png'); display:none ">
 			    <div class="article-content">
 			        <div class="title">#title#</div>
 			        <div class="body">#shortstory#</div>
@@ -96,7 +100,7 @@
 				</div>
 			</div>
 
-			<div class="article" style="background-image: url('img/news/vip_promo.png'); display:none ">
+			<div class="article" style="background-image: url('themes/Default/img/news/vip_promo.png'); display:none ">
 			    <div class="article-content">
 			        <div class="title">#title#</div>
 			        <div class="body">#shortstory#</div>
@@ -111,35 +115,35 @@
 			<h3>What's going on?</h3>
 			<div class="stream-content">
 				<div class="story">
-					<div class="story-avatar" style="background:url('img/frontpage/stream-avatar.gif') -16px -20px no-repeat">
+					<div class="story-avatar" style="background:url('themes/Default/img/frontpage/stream-avatar.gif') -16px -20px no-repeat">
 					</div>
 					<div class="story-desc">
 						Nominal has just earned an achievement. <a href="##" class="link">Go there</a>
 					</div>
 				</div>
 				<div class="story">
-					<div class="story-avatar" style="background:url('img/frontpage/stream-avatar.gif') -16px -20px no-repeat">
+					<div class="story-avatar" style="background:url('themes/Default/img/frontpage/stream-avatar.gif') -16px -20px no-repeat">
 					</div>
 					<div class="story-desc">
 						Nominal has just earned an achievement. <a href="##" class="link">Go there</a>
 					</div>
 				</div>
 				<div class="story">
-					<div class="story-avatar" style="background:url('img/frontpage/stream-avatar.gif') -16px -20px no-repeat">
+					<div class="story-avatar" style="background:url('themes/Default/img/frontpage/stream-avatar.gif') -16px -20px no-repeat">
 					</div>
 					<div class="story-desc">
 						Nominal has just earned an achievement. <a href="##" class="link">Go there</a>
 					</div>
 				</div>
 				<div class="story">
-					<div class="story-avatar" style="background:url('img/frontpage/stream-avatar.gif') -16px -20px no-repeat">
+					<div class="story-avatar" style="background:url('themes/Default/img/frontpage/stream-avatar.gif') -16px -20px no-repeat">
 					</div>
 					<div class="story-desc">
 						Nominal has just earned an achievement. <a href="##" class="link">Go there</a>
 					</div>
 				</div>
 				<div class="story">
-					<div class="story-avatar" style="background:url('img/frontpage/stream-avatar.gif') -16px -20px no-repeat">
+					<div class="story-avatar" style="background:url('themes/Default/img/frontpage/stream-avatar.gif') -16px -20px no-repeat">
 					</div>
 					<div class="story-desc">
 						Nominal has just earned an achievement. <a href="##" class="link">Go there</a>
@@ -150,39 +154,14 @@
 		</div>
 		
 		<div class="popularTags">
-			<h2>Popular Tags</h2>
-			<div class="container">
-				<a href="##" class="tag">
-					aids
-				</a>
-				<a href="##" class="tag">
-					roc
-				</a>
-				<a href="##" class="tag">
-					habboon
-				</a>
-				<a href="##" class="tag">
-					sojoboob
-				</a>
-				<a href="##" class="tag">
-					shorty
-				</a>
-				<a href="##" class="tag">
-					rofl
-				</a>
-				<a href="##" class="tag">
-					buttsecks
-				</a>
-				<a href="##" class="tag">
-					dildo
-				</a>
-				<a href="##" class="tag">
-					nominal
-				</a>
-				<a href="##" class="tag">
-					oleg
-				</a>
-			</div>
+			<cfoutput>
+				<h2>Popular Tags</h2>
+				<div class="container">
+					<a href="index.cfm?page=tags?tag=#tag#" class="tag">
+						#tag#
+					</a>
+				</div>
+			</cfoutput>
 		</div>
 		
 		<div class="adContainer">
