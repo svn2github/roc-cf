@@ -1,6 +1,10 @@
 var CurStory = 1;
 var interval = "";
 var RegStep = 1;
+var tab = 1;
+var PassName = false;
+var PassMail = false;
+var PassPass = false; // derp
 
 function TimedNews() {
 	var index = CurStory;
@@ -14,6 +18,42 @@ function TimedNews() {
 	if (CurStory >= $('#buttons a').size())
 		CurStory = 0;
 };
+
+function doNameCheck() {
+	name = $(".username").val();
+	$.get("/system/account/check_name.cfm", {reg_name: name}, function(data) {
+		if( $.trim(data) == "0" ) {
+			$(".username").removeClass("green");
+			$(".username").addClass("red");
+			PassName = false;
+		} else {
+			$(".username").removeClass("red");
+			$(".username").addClass("green");
+			PassName = true;
+		}
+
+	});
+}
+
+function validatePasswords()
+{
+	if ($('.password').val() == '' || $('.password2').val() == '' || $('.password').val() != $('.password2').val())
+	{
+		$('.password').removeClass('green');
+		$('.password').addClass('red');
+		$('.password2').removeClass('green');
+		$('.password2').addClass('red');
+		PassPass = false;
+	}
+	else
+	{
+		$('.password').removeClass('red');
+		$('.password').addClass('green');
+		$('.password2').removeClass('red');
+		$('.password2').addClass('green');
+		PassPass = true;
+	}
+}
 
 function validateEmail()
 {
@@ -34,15 +74,17 @@ function validateEmail()
 
 function validateEmail2()
 {
-	if ($('.email').val() != $('.rep_email').val())
+	if ($('.email').val() == '' || $('.email').val() != $('.rep_email').val())
 	{
 		$('.rep_email').removeClass('green');
 		$('.rep_email').addClass('red');
+		PassMail = false;
 	}
 	else
 	{
 		$('.rep_email').removeClass('red');
 		$('.rep_email').addClass('green');
+		PassMail = true;
 	}
 }
 
@@ -86,10 +128,52 @@ $(document).ready(function(){
 		validateEmail2();
 	});
 	
+	$('.password').keypress(function(e){
+		if(e.which == 13){
+			validatePasswords();
+		}
+	});
+	$('.password').blur(function(e){
+		validatePasswords();
+	});
+	$('.password2').keypress(function(e){
+		if(e.which == 13){
+			validatePasswords();
+		}
+	});
+	$('.password2').blur(function(e){
+		validatePasswords();
+	});
+
+	$('.username').keypress(function(e){
+		if(e.which == 13){
+			doNameCheck();
+		}
+	});
+	$('.username').blur(function(e){
+		doNameCheck();
+	});
+	
 	$('.column > .proceed').click(function(event)
 	{		
 		$("form .column:nth-child(" + RegStep + ")").animate({"left": "-=240px"}, "slow");
-		$("form .column:nth-child(" + (RegStep + 1) + ")").animate({"left": "-=240px"}, "slow"); 
+		$("form .column:nth-child(" + (RegStep + 1) + ")").animate({"left": "-=240px"}, "slow");
+		tab = 2;
+	});
+
+	$('.column > .complete').click(function(event)
+	{
+		validateEmail();
+		validateEmail2();
+		validatePasswords();
+		doNameCheck();
+		if (PassName && PassMail && PassPass)
+			document.forms["registration"].submit();
+		else if (tab == 2)
+		{
+			$("form .column:nth-child(" + RegStep + ")").animate({"left": "+=240px"}, "slow");
+			$("form .column:nth-child(" + (RegStep + 1) + ")").animate({"left": "+=240px"}, "slow");
+		}
 	});
 
 	$("span.joinnow").click(function(){

@@ -1,8 +1,8 @@
 ﻿<cfif StructKeyExists(session, "username")>
 	<cflocation url = "/main.cfm" Addtoken="No">
-<cfelseif NOT StructKeyExists(form, "username")>
+<cfelseif NOT StructKeyExists(form, "username") OR form.username is "">
 	<cflocation url="/index.cfm?reason=field_username" Addtoken="No">
-<cfelseif NOT StructKeyExists(form, "password")>
+<cfelseif NOT StructKeyExists(form, "password") OR form.password is "">
 	<cflocation url="/index.cfm?reason=field_password" Addtoken="No">
 </cfif>
 
@@ -11,9 +11,9 @@
 	WHERE username = <CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
 	LIMIT 1
 </cfquery>
-<cfif CheckLogin.RecordCount>
 
-	<cfif hash(form.password, "MD5") is CheckLogin.password>
+<cfif CheckLogin.RecordCount>
+	<cfif hash(form.password, "SHA-512") is CheckLogin.password>
 		
 		<!-- Set Regular Session Variables -->
 		<cfset session.userid = CheckLogin.id>

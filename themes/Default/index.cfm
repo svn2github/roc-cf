@@ -23,7 +23,7 @@
 					Please fill in the required information or
 				</span>
 				<a href="#"><span class="facebookConnect">
-					Connect with Facebook
+					Facebook (soon™)
 				</span></a>
 			</div>
 			<form method="post" name="registration" action="register_submit">
@@ -34,9 +34,9 @@
 					<div class="proceed">Next</div>
 				</div>
 				<div class="column">
-					<input type="password" name="password" placeholder="Password" />
-					<input type="password" name="password2" placeholder="Repeat Password" />
-					<div>Complete</div>
+					<input type="password" class="password" name="password" placeholder="Password" />
+					<input type="password" class="password2" name="password2" placeholder="Repeat Password" />
+					<div class="complete">Complete</div>
 				</div>
 			</form>
 			<div class="hideColumn">
@@ -149,7 +149,7 @@
 		</div>
 		
 		<div class="footer">
-			
+
 		</div>
 	</div>
 </body>
