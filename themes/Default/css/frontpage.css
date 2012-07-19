@@ -185,12 +185,21 @@ top:-20px;
 left:680px;
 background:url('../img/frontpage/login_bg.png');
 }
-div.header > div.login > h2 {
+div.header > div.login > div.loginheader {
+margin: 10px 0 0 0;
+}
+div.header > div.login > div.loginheader > h2 {
 font-size:37px;
 font-family:Segoe UI Light;
 color:#fff;
 font-weight:normal;
-margin:20px 0 0 0;
+}
+div.header > div.login > div.loginheader > h4 {
+font-size:17px;
+font-family:Segoe UI Light;
+color:#fff;
+font-weight:normal;
+margin: 6px 0 0 0;
 }
 div.header > div.login > form > input {
 width:200px;

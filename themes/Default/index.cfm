@@ -46,7 +46,20 @@
 	<div class="wrapper">
 		<div class="header">
 			<div class="login">
-				<h2>Sign-in</h2>
+				<div class="loginheader">
+					<h2>Sign-in</h2>
+					<cfif StructKeyExists(url, "reason")>
+						<cfif url.reason is "login_username">
+							<h4>Username not found</h4>
+						<cfelseif url.reason is "field_username">
+							<h4>Enter your username</h4>
+						<cfelseif url.reason is "field_password">
+							<h4>Enter your password</h4>
+						<cfelseif url.reason is "login_password">
+							<h4>Password was incorrect</h4>
+						</cfif>
+					</cfif>
+				</div>
 				<form method="post" action="/system/account/login.cfm">
 					<input type="text" name="username" placeholder="Username" />
 					<input type="password" name="password" placeholder="Password" />
