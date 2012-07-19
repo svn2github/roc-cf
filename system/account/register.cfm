@@ -20,8 +20,10 @@
 	SELECT id
 	FROM users
 	WHERE username = <CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
+	OR ip_reg = "#ipaddress#"
 	LIMIT 1
 </cfquery>
+<!-- After 2000 registrations, REMEMBER TO REMOVE THE IP CHECK!!!!111 -->
 
 <cfif NameCheck.RecordCount>
 	<cflocation url="/index.cfm?error=register_nametaken" Addtoken="No">
@@ -30,7 +32,7 @@
 
 <cfquery name = "RegisterAccount" datasource = "#DSN#">
 	INSERT INTO users (username, password, mail, gender, look, motto, last_online, rank, online, ip_last, auth_ticket, account_created, ip_reg)
-	VALUES (<CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, <CFQUERYPARAM VALUE="#hash(form.password, "SHA-512")#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="128">, <CFQUERYPARAM VALUE="#form.email#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, 'm', 'hr-100.hd-180-1.ch-210-66.lg-270-82.sh-290-91', 'Habboon.com', UNIX_TIMESTAMP(), '1', '0', '#CGI.REMOTE_ADDR#', '', UNIX_TIMESTAMP(), '#CGI.REMOTE_ADDR#')
+	VALUES (<CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, <CFQUERYPARAM VALUE="#hash(form.password, "SHA-512")#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="128">, <CFQUERYPARAM VALUE="#form.email#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, 'm', 'hr-100.hd-180-1.ch-210-66.lg-270-82.sh-290-91', 'Habboon.com', UNIX_TIMESTAMP(), '1', '0', '#ipaddress#', '', UNIX_TIMESTAMP(), '#ipaddress#')
 </cfquery>
 
 <cfquery name = "NewAccount" datasource = "#DSN#">

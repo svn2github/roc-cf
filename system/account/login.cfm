@@ -27,7 +27,7 @@
 			WHERE username = <CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
 		</cfquery>
 		
-		Redirect to Main Index
+		<cflocation url="/main.cfm" Addtoken="No">
 
 	<cfelse>
 		<cflocation url="/?reason=login_password" Addtoken="No">

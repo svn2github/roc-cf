@@ -26,7 +26,7 @@
 					Facebook (soon™)
 				</span></a>
 			</div>
-			<form method="post" name="registration" action="register_submit">
+			<form method="post" name="registration" action="/system/account/register.cfm">
 				<div class="column">
 					<input type="text" class="username" name="username" placeholder="Username" />
 					<input type="text" class="email" name="email" placeholder="E-mail" />
