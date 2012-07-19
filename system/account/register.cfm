@@ -2,11 +2,11 @@
 	<cflocation url = "/main.cfm" Addtoken="No">
 </cfif>
 
-<cfif NOT StructKeyExists(form, "register_username") OR NOT StructKeyExists(form, "register_email") OR NOT StructKeyExists(form, "register_email_confirm")>
+<cfif NOT StructKeyExists(form, "username") OR NOT StructKeyExists(form, "email") OR NOT StructKeyExists(form, "rep_email")>
 	<cflocation url="/index.cfm?error=register_userdetails" Addtoken="No">
 </cfif>
 
-<cfif NOT StructKeyExists(form, "register_password") OR NOT StructKeyExists(form, "register_password_confirm") OR NOT hash(form.register_password, "SHA-512") is hash(form.register_password_confirm, "SHA-512")>
+<cfif NOT StructKeyExists(form, "password") OR NOT StructKeyExists(form, "password2") OR NOT hash(form.password, "SHA-512") is hash(form.password2, "SHA-512")>
 	<cflocation url="/index.cfm?error=register_password" Addtoken="No">
 </cfif>
 
