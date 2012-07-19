@@ -16,7 +16,7 @@
 	<cflocation url="/index.cfm?error=register_password" Addtoken="No">
 </cfif>
 
-<cfquery name = "NameCheck">
+<cfquery name = "NameCheck" datasource = "#DSN#">
 	SELECT id
 	FROM users
 	WHERE username = <CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
@@ -28,7 +28,7 @@
 	<cfabort>
 </cfif>
 
-<cfquery name = "RegisterAccount">
+<cfquery name = "RegisterAccount" datasource = "#DSN#">
 	INSERT INTO users (username, password, mail, gender, look, motto, last_online, rank, online, ip_last, auth_ticket, account_created, ip_reg)
 	VALUES (<CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, <CFQUERYPARAM VALUE="#hash(form.password, "SHA-512")#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, <CFQUERYPARAM VALUE="#form.email#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, '#gender#', '#figure#', 'Habboon.com', UNIX_TIMESTAMP(), '1', '0', '#CGI.REMOTE_ADDR#', '', UNIX_TIMESTAMP(), '#CGI.REMOTE_ADDR#')
 </cfquery>
