@@ -22,13 +22,13 @@ function validateEmail()
 	var dotpos=x.lastIndexOf(".");
 	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
 	{
-		$('.email').removeClass('valid');
-		$('.email').addClass('error');
+		$('.email').removeClass('green');
+		$('.email').addClass('red');
 	}
 	else
 	{
-		$('.email').removeClass('error');
-		$('.email').addClass('valid');
+		$('.email').removeClass('red');
+		$('.email').addClass('green');
 	}
 }
 
@@ -36,13 +36,13 @@ function validateEmail2()
 {
 	if ($('.email').val() != $('.rep_email').val())
 	{
-		$('.rep_email').removeClass('valid');
-		$('.rep_email').addClass('error');
+		$('.rep_email').removeClass('green');
+		$('.rep_email').addClass('red');
 	}
 	else
 	{
-		$('.rep_email').removeClass('error');
-		$('.rep_email').addClass('valid');
+		$('.rep_email').removeClass('red');
+		$('.rep_email').addClass('green');
 	}
 }
 
@@ -100,11 +100,11 @@ $(document).ready(function(){
 			}, 'slow');
 			$('span.joinnow').text('Join now');
 			$("span.joinnow").removeClass("active");
-			$("span.joinnow").css('background', 'url(themes/Default/img/frontpage/joinnow_arrow.png) no-repeat');
+			$("span.joinnow").css('background', 'url(img/frontpage/joinnow_arrow.png) no-repeat');
 			$("span.joinnow").hover(function(){
-				$("span.joinnow").css('background', 'url(themes/Default/img/frontpage/joinnow_arrow_over.png) no-repeat');
+				$("span.joinnow").css('background', 'url(img/frontpage/joinnow_arrow_over.png) no-repeat');
 			},function(){
-				$("span.joinnow").css('background', 'url(themes/Default/img/frontpage/joinnow_arrow.png) no-repeat');
+				$("span.joinnow").css('background', 'url(img/frontpage/joinnow_arrow.png) no-repeat');
 			});
 			$('.header').animate({
 				height: '250px',
@@ -118,14 +118,14 @@ $(document).ready(function(){
 			}, 'slow');
 			$('span.joinnow').text('Sign-in');
 			$("span.joinnow").addClass("active");
-			$("span.joinnow").css('background', 'url(themes/Default/img/frontpage/joinnow_arrow_flip.png) no-repeat');
+			$("span.joinnow").css('background', 'url(img/frontpage/joinnow_arrow_flip.png) no-repeat');
 			$("span.joinnow").hover(function(){
-				$("span.joinnow").css('background', 'url(themes/Default/img/frontpage/joinnow_arrow_flip_over.png) no-repeat');
+				$("span.joinnow").css('background', 'url(img/frontpage/joinnow_arrow_flip_over.png) no-repeat');
 			},function(){
-				$("span.joinnow").css('background', 'url(themes/Default/img/frontpage/joinnow_arrow_flip.png) no-repeat');
+				$("span.joinnow").css('background', 'url(img/frontpage/joinnow_arrow_flip.png) no-repeat');
 			});
 			$('.header').animate({
-				height: '0px',
+				height: '220px',
 				visibility: 'hidden'
 			}, 'slow');
 		}
