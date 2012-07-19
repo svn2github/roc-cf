@@ -30,21 +30,22 @@
 
 <cfquery name = "RegisterAccount" datasource = "#DSN#">
 	INSERT INTO users (username, password, mail, gender, look, motto, last_online, rank, online, ip_last, auth_ticket, account_created, ip_reg)
-	VALUES (<CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, <CFQUERYPARAM VALUE="#hash(form.password, "SHA-512")#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, <CFQUERYPARAM VALUE="#form.email#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, '#gender#', '#figure#', 'Habboon.com', UNIX_TIMESTAMP(), '1', '0', '#CGI.REMOTE_ADDR#', '', UNIX_TIMESTAMP(), '#CGI.REMOTE_ADDR#')
+	VALUES (<CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, <CFQUERYPARAM VALUE="#hash(form.password, "SHA-512")#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="128">, <CFQUERYPARAM VALUE="#form.email#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, 'm', 'hr-100.hd-180-1.ch-210-66.lg-270-82.sh-290-91', 'Habboon.com', UNIX_TIMESTAMP(), '1', '0', '#CGI.REMOTE_ADDR#', '', UNIX_TIMESTAMP(), '#CGI.REMOTE_ADDR#')
 </cfquery>
 
-<!-- Set Regular Session Variables -->
-<cfset session.userid = CheckLogin.id>
-<cfset session.username = CheckLogin.username>
-<cfset session.useremail = CheckLogin.mail>
-<!-- Add additional session variables if needed to prevent having to use lots of MySQL Queries. -->
-
 <cfquery name = "NewAccount" datasource = "#DSN#">
-	SELECT id FROM users
+	SELECT id, username, mail FROM users
 	WHERE username = <CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
 	LIMIT 1
 </cfquery>
+
 <cfquery name = "UsersStats" datasource = "#DSN#">INSERT INTO user_stats (id, RoomVisits, OnlineTime, Respect, RespectGiven, GiftsGiven, GiftsReceived, DailyRespectPoints, DailyPetRespectPoints) VALUES (#NewAccount.id#, 0, 0, 0, 0, 0, 0, 3, 3)</cfquery>
 <cfquery name = "UsersStats" datasource = "#DSN#">INSERT INTO user_info (user_id, reg_timestamp) VALUES (#NewAccount.id#, UNIX_TIMESTAMP())</cfquery>
 
-<cflocation url="/main.cfm">
+<!-- Set Regular Session Variables -->
+<cfset session.userid = NewAccount.id>
+<cfset session.username = NewAccount.username>
+<cfset session.useremail = NewAccount.mail>
+<!-- Add additional session variables if needed to prevent having to use lots of MySQL Queries. -->
+
+<cflocation url="/main.cfm" addtoken="No">
