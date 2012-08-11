@@ -78,6 +78,18 @@ background:url('../img/logo_small.png') no-repeat;
 margin:0 0 0 410px;
 z-index:10;
 }
+div.barline > a > span.online {
+height:15px;
+overflow:hidden;
+position:absolute;
+top:13px;
+left:50%;
+color:#CCC;
+font-size:11px;
+text-transform:uppercase;
+margin:0 0 0 365px;
+z-index:10;
+}
 div.barline > .content {
 width:960px;
 height:170px;

@@ -21,7 +21,7 @@ function TimedNews() {
 
 function doNameCheck() {
 	name = $(".username").val();
-	$.get("/system/account/check_name.cfm", {reg_name: name}, function(data) {
+	$.get("./system/account/check_name.cfm", {reg_name: name}, function(data) {
 		if( $.trim(data) == "0" ) {
 			$(".username").removeClass("green");
 			$(".username").addClass("red");

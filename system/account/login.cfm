@@ -1,9 +1,9 @@
 ﻿<cfif StructKeyExists(session, "username")>
-	<cflocation url = "/main.cfm" Addtoken="No">
+	<cflocation url = "../../home/" Addtoken="No">
 <cfelseif NOT StructKeyExists(form, "username") OR form.username is "">
-	<cflocation url="/index.cfm?reason=field_username" Addtoken="No">
+	<cflocation url="../../?reason=field_username" Addtoken="No">
 <cfelseif NOT StructKeyExists(form, "password") OR form.password is "">
-	<cflocation url="/index.cfm?reason=field_password" Addtoken="No">
+	<cflocation url="../../?reason=field_password" Addtoken="No">
 </cfif>
 
 <cfquery name = "CheckLogin" datasource = "#DSN#">
@@ -27,12 +27,12 @@
 			WHERE username = <CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
 		</cfquery>
 		
-		<cflocation url="/main.cfm" Addtoken="No">
+		<cflocation url="../../home/" Addtoken="No">
 
 	<cfelse>
-		<cflocation url="/?reason=login_password" Addtoken="No">
+		<cflocation url="../../?reason=login_password" Addtoken="No">
 	</cfif>
 
 <cfelse>
-	<cflocation url="/?reason=login_username" Addtoken="No">
+	<cflocation url="../../?reason=login_username" Addtoken="No">
 </cfif>
