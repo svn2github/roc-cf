@@ -44,7 +44,7 @@
 					<cfif p eq "index">
 						#sitename# - Make friends, join the fun, get noticed!
 					<cfelse>
-						#sitename# - <cfoutput>REMEMBER TO ADD TITLE!</cfoutput>
+						#sitename# - <cfoutput>#p#</cfoutput>
 					</cfif>
 				</title>
 				
@@ -104,6 +104,12 @@
 					<script src="app/tpl/habbo/js/quickregister.js"></script>
 				</cfif>
 				
+				<cfif p eq "client">
+					<link rel="stylesheet" href="app/tpl/habbo/styles/client.css" />
+					<link rel="stylesheet" href="app/tpl/habbo/styles/habboflashclient.css" />
+					<script src="app/tpl/habbo/js/habboflashclient.js" type="text/javascript"></script>
+				</cfif>
+				
 				<cfif p eq "index">
 					<link rel="stylesheet" href="app/tpl/habbo/styles/frontpage.css" />
 					
@@ -119,7 +125,7 @@
 						##footer .copyright      { color: ##666666; }
 						##footer ##compact-tags-container span, ##footer ##compact-tags-container a { color: ##333333; }
 						
-						input[type="submit"] {
+						input[type=submit] {
 							background: url('app/tpl/habbo/images/lgn_btn.png') top;
 							font: bold 13px arial,sans-serif;
 							line-height: 33px;
@@ -128,7 +134,7 @@
 							width: 96px;
 							border: 0;
 						}
-						input[type="submit"]:hover {
+						input[type=submit]:hover {
 							background-position: bottom;
 							cursor: pointer;
 						}
@@ -156,7 +162,7 @@
 			
 			<body id="<cfif p eq "index">frontpage<cfelse>#p#</cfif>" class="<cfif p eq "logout">process-template</cfif>">
 				<!--- Include header (on pages except those listed below) --->
-				<cfif p eq "index" or p eq "register" or p eq "logout" or p eq "login" or p eq "imager">
+				<cfif p eq "index" or p eq "register" or p eq "logout" or p eq "login" or p eq "imager" or p eq "client">
 				<cfelse>
 					<cfinclude template="app/tpl/#config.theme#/statics/header.tpl">
 				</cfif>
@@ -177,7 +183,7 @@
 					</cftry>			
 						
 				<!--- Include footer (on pages except those listed below) --->
-				<cfif p eq "register" or p eq "logout">
+				<cfif p eq "register" or p eq "logout" or p eq "client">
 				<cfelse>
 					<cfinclude template="app/tpl/#config.theme#/statics/footer.tpl">
 				</cfif>
