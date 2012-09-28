@@ -1,4 +1,4 @@
-<!--
+﻿<!--
                  |
   \_            /;
   `\~--.._     //'
@@ -109,7 +109,11 @@
 					<link rel="stylesheet" href="app/tpl/habbo/styles/habboflashclient.css" />
 					<script src="app/tpl/habbo/js/habboflashclient.js" type="text/javascript"></script>
 				</cfif>
-				
+
+				<cfif p eq "account">
+					<script src="app/tpl/habbo/js/accountsettings.js" type="text/javascript"></script>
+				</cfif>
+
 				<cfif p eq "index">
 					<link rel="stylesheet" href="app/tpl/habbo/styles/frontpage.css" />
 					
