@@ -39,9 +39,6 @@
 								<div id="subnavi">
 									<div id="subnavi-user">
 										<div class="clearfix">&nbsp;</div>
-										<p>
-												<a href="?p=client" id="enter-hotel-open-medium-link" target="0f9cfc6a68a7428bc8fb0b7cd80a3874c0ee7462" onclick="HabboClient.openOrFocus(this); return false;">Enter <cfoutput>#sitename#</cfoutput></a>
-										</p>
 									</div>
 
 									<div id="subnavi-login">
