@@ -10,7 +10,7 @@ function ChangeTab(totab){
 }
 
 function SubmitUserSettings(updateMotto, emailNewsletterEnabled, blockNewFriends, hideOnlineStatus, hideInRoom){
-	jQuery(".success").fadeIn();
+	jQuery(".success").fadeOut();
 	jQuery.post("app/func/updateUserSettings.cfm", 
 	{ 
 		updateMotto: updateMotto,
@@ -19,4 +19,16 @@ function SubmitUserSettings(updateMotto, emailNewsletterEnabled, blockNewFriends
 		hideOnlineStatus: hideOnlineStatus,
 		hideInRoom: hideInRoom
 	});
+	jQuery(".success").fadeIn();
+}
+
+function SubmitNewPassword(oldpass, newpass){
+	jQuery(".fail").fadeOut();
+	jQuery(".success").fadeOut();
+	jQuery.post("app/func/updateUserPassword.cfm", 
+	{ 
+		oldpass: oldpass,
+		newpass: newpass
+	});
+	jQuery(".success").fadeIn();
 }
