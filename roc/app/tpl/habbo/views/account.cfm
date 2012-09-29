@@ -63,25 +63,69 @@
 		</p>
 
 		<div class="settings-buttons">
-		<a href="#" class="new-button" style="" id="profileForm-submit"><b>Save changes</b><i></i></a>
-		<noscript>&lt;input type="submit" value="Save changes" name="save" class="submit" /&gt;</noscript>
+			<a href="#" class="new-button" style="" id="profileForm-submit"><b>Save changes</b><i></i></a>
 		</div>
 	</form>
 
 	<script type="text/javascript">
-	$("profileForm-submit").observe("click", function(e) 
-		{ 
-			/*e.stop(); $("profileForm").submit();*/ 
-			SubmitUserSettings(jQuery("#avatarmotto").val(), jQuery("#emailNewsletterEnabled:checkbox:checked").val(), jQuery("#blockNewFriends:checkbox:checked").val(), jQuery("input[name=hideOnlineStatus]:checked").val(), jQuery("input[name=hideInRoom]:checked").val())
-		}
-	);
+		$("profileForm-submit").observe("click", function(e) 
+			{ 
+				SubmitUserSettings(jQuery("#avatarmotto").val(), jQuery("#emailNewsletterEnabled:checkbox:checked").val(), jQuery("#blockNewFriends:checkbox:checked").val(), jQuery("input[name=hideOnlineStatus]:checked").val(), jQuery("input[name=hideInRoom]:checked").val())
+			}
+		);
 	</script>
 	
 </div>
 <cfelseif tab eq "3">
 email
 <cfelseif tab eq "4">
-password
+<div class="box-content">
+	<div class="rounded-container success" style="display:none"><div style="background-color: rgb(255, 255, 255); "><div style="margin: 0px 4px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(141, 204, 107); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(90, 182, 40); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(65, 171, 8); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(140, 204, 105); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(60, 168, 1); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(108, 190, 64); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(140, 204, 105); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(60, 168, 1); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(141, 204, 107); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(90, 182, 40); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(65, 171, 8); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div><div class="rounded-green rounded-done">
+		Profile update successful!<br>
+	</div><div style="background-color: rgb(255, 255, 255); "><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(65, 171, 8); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(90, 182, 40); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(141, 204, 107); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(60, 168, 1); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(140, 204, 105); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(108, 190, 64); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(140, 204, 105); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(60, 168, 1); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div></div><div style="margin: 0px 4px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(141, 204, 107); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(90, 182, 40); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(65, 171, 8); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div></div></div></div></div><br />
+
+	<div class="rounded-container fail" style="display:none"><div style="background-color: rgb(255, 255, 255); "><div style="margin: 0px 4px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(141, 204, 107); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(90, 182, 40); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(65, 171, 8); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(140, 204, 105); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(60, 168, 1); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(108, 190, 64); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(140, 204, 105); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(60, 168, 1); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(141, 204, 107); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(90, 182, 40); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(65, 171, 8); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div><div class="rounded-red rounded-done">
+		Profile update unsuccessful!<br>
+	</div><div style="background-color: rgb(255, 255, 255); "><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(65, 171, 8); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(90, 182, 40); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(141, 204, 107); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(60, 168, 1); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(140, 204, 105); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(108, 190, 64); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(140, 204, 105); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(60, 168, 1); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div></div><div style="margin: 0px 4px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(141, 204, 107); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(90, 182, 40); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(65, 171, 8); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div></div></div></div></div><br />
+
+	<form action="app/func/updateUserSettings.cfm" method="post" id="profileForm">
+		<h3>Your password</h3>
+		<p>
+			Passwords must contain both letters and numbers and be at least 6 characters long. Remember to keep your password secret!
+		</p>
+		<p>
+			<label>Current Password:<br />
+			<input type="password" name="currpass" size="32" maxlength="32" value="" id="currpass"></label>
+		</p>
+		<p>
+			<label>New Password:<br />
+			<input type="password" name="newpass1" size="32" maxlength="32" value="" id="newpass1"></label>
+		</p>
+		<p>
+			<label>Repeat Password:<br />
+			<input type="password" name="newpass2" size="32" maxlength="32" value="" id="newpass2"></label>
+		</p>
+		
+		<div class="settings-buttons">
+			<a href="#" class="new-button" style="" id="profileForm-submit"><b>Save changes</b><i></i></a>
+		</div>
+	</form>
+
+	<script type="text/javascript">
+		$("profileForm-submit").observe("click", function(e) 
+			{
+				if (jQuery("#newpass1").val() == jQuery("#newpass2").val() && jQuery("#newpass1").val() != "" &&  jQuery("#currpass").val() != "")
+				{
+					SubmitNewPassword(jQuery("#currpass").val(), jQuery("#newpass1").val());
+				}
+				else
+				{
+					jQuery(".fail").fadeIn();
+				}
+			}
+		);
+	</script>
+</div>
 <cfelseif tab eq "5">
 friends
 <cfelseif tab eq "6">
