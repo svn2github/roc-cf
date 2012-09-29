@@ -13,7 +13,7 @@
 </cfquery>
 
 <cfif CheckLogin.RecordCount>
-        <cfif hash(form.password) is CheckLogin.password>
+        <cfif hash(form.password, "SHA-512") is CheckLogin.password>
                 
                 <!-- Set Regular Session Variables -->
                 <cfset session.userid = CheckLogin.id>

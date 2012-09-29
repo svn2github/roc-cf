@@ -4,7 +4,7 @@
 	WHERE id = #session.userid#
 </cfquery>
 
-<cfif CurrentPass.password is hash(oldpass)>
+<cfif CurrentPass.password is hash(oldpass, "SHA-512")>
 	<cfset password = hash(newpass) >
 	<cfquery name="updateUserPassword" datasource="#config.DSN#">
 		UPDATE users
