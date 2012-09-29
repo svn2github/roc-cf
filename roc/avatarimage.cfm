@@ -64,11 +64,9 @@
 					</cfif>
 
 					Whoops, PNG error! (<cfoutput>#objGet.statusCode#</cfoutput>)
-					<cfscript>continue;</cfscript>
 				</cfif>
 				
 				Whoops, 403/ 404!
-				<cfscript>continue;</cfscript>
 			</cfif>
 		</cfloop>
 		
