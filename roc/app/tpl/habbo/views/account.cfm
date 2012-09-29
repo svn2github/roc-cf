@@ -7,7 +7,7 @@
 		Profile update successful!<br>
 	</div><div style="background-color: rgb(255, 255, 255); "><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(65, 171, 8); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(90, 182, 40); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(141, 204, 107); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(60, 168, 1); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(140, 204, 105); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(108, 190, 64); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(140, 204, 105); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(60, 168, 1); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div></div><div style="margin: 0px 4px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(141, 204, 107); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(90, 182, 40); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(65, 171, 8); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(59, 168, 0); "></div></div></div></div></div></div></div><br />
 
-	<form action="app/func/updateUserSettings.cfm" method="post" id="profileForm">
+	<form action="app/func/updateUserSettings.cfm" method="post" id="profileForm" onsubmit="return false;">
 		<cfquery name="getUserSettings" datasource="#config.DSN#">
 			SELECT motto, subscribed, block_newfriends, hide_online, hide_inroom
 			FROM users
@@ -73,7 +73,12 @@
 				SubmitUserSettings(jQuery("#avatarmotto").val(), jQuery("#emailNewsletterEnabled:checkbox:checked").val(), jQuery("#blockNewFriends:checkbox:checked").val(), jQuery("input[name=hideOnlineStatus]:checked").val(), jQuery("input[name=hideInRoom]:checked").val())
 			}
 		);
-	</script>
+		$('avatarmotto').observe('keypress', function(event){
+		    if(event.keyCode == Event.KEY_RETURN) {
+				SubmitUserSettings(jQuery("#avatarmotto").val(), jQuery("#emailNewsletterEnabled:checkbox:checked").val(), jQuery("#blockNewFriends:checkbox:checked").val(), jQuery("input[name=hideOnlineStatus]:checked").val(), jQuery("input[name=hideInRoom]:checked").val())
+		    }
+		});
+		</script>
 	
 </div>
 <cfelseif tab eq "3">
