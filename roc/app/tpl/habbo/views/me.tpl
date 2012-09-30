@@ -6,7 +6,7 @@
 									<div id="wide-personal-info">
 										<div id="habbo-plate">
 											<a href="?p=account">
-												<img alt="jarofjak"
+												<img alt="me"
 													<cfif motto neq "crikey">
 														src="avatarimage.cfm?user=<cfoutput>#session.username#</cfoutput>&direction=3&head_direction=3&gesture=sml&img_format=png&size=&action=std">
 													<cfelse>
