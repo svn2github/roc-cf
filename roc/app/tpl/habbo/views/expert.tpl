@@ -14,11 +14,11 @@
 	<div id="content" style="position: relative" class="clearfix"><div>
 
 	<div class="content">
-		<div class="habblet-container" style="float:left; width:930px;">
+		<div class="habblet-container" style="float:left;">
 		<div class="cb settings">
 			<div class="bt"><div></div></div><div class="i1"><div class="i2"><div class="i3">
 			
-			<div class="box-content" style="background-image:url('app/tpl/habbo/images/backgrounds/habbox.gif')">
+			<div class="box-content" style="background-image:url('app/tpl/habbo/images/backgrounds/habbox.gif'); width:890px; height:1340px">
 				<div style="display:inline-block">
 				<cfoutput query="GeteXperts">
 					<div class="habblet-container" style="width:230px; float:left">

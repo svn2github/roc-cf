@@ -93,7 +93,7 @@
 					<div id="content-container">
 						<div id="navi2-container" class="pngbg">
 							<div id="navi2" class="pngbg clearfix">
-								<cfif p eq "community" or p eq "articles" or p eq "vip" or p eq "staff">
+								<cfif p eq "community" or p eq "articles" or p eq "vip" or p eq "staff" or p eq "expert">
 									<ul>
 										<!-- The last <li> MUST have the class 'last'. -->
 										<cfif p eq "community"><li class="selected">Community<cfelse><li><a href="?p=community">Community</a></cfif></li>
