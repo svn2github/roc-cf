@@ -17,11 +17,14 @@
 		<div class="habblet-container" style="float:left;">
 		<div class="cb settings">
 			<div class="bt"><div></div></div><div class="i1"><div class="i2"><div class="i3">
+			<div class="box-tabs-container box-tabs-left clearfix">
+			    <h2 class="page-owner">eXperts</h2>
+			    <ul class="box-tabs"></ul>
+			</div>
 			
-			<div class="box-content" style="background-image:url('app/tpl/habbo/images/backgrounds/habbox.gif'); width:890px; height:1340px">
-				<div style="display:inline-block">
+			<div class="box-content" style="background-image:url('app/tpl/habbo/images/backgrounds/habbox.gif'); width:890px; height:1340px; padding-left:55px;">
 				<cfoutput query="GeteXperts">
-					<div class="habblet-container" style="width:230px; float:left">
+					<div class="habblet-container" style="width:280px; height: 155px; display:inline-block; ">
 					<div class="cb clearfix blue">
 						<div class="bt"><div></div></div><div class="i1"><div class="i2"><div class="i3">
 						<div class="rounded-container"><div style="background-color: rgb(255, 255, 255); "><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(144, 144, 144); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(100, 100, 100); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(89, 89, 89); "></div></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(99, 99, 99); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(89, 89, 89); "></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(144, 144, 144); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(89, 89, 89); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(100, 100, 100); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(89, 89, 89); "></div></div></div><h2 class="title rounded-done">#username#</h2><div style="background-color: rgb(255, 255, 255); "><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(100, 100, 100); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(89, 89, 89); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(144, 144, 144); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(89, 89, 89); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(99, 99, 99); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(89, 89, 89); "></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(144, 144, 144); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(100, 100, 100); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(89, 89, 89); "></div></div></div></div></div></div>
@@ -32,14 +35,13 @@
 							<img alt="badge" src="app/tpl/habbo/images/badges/XXX.gif"><br />
 							<img alt="badge" src="app/tpl/habbo/images/flags/wor.png">
 						</div>
-						<div style="float:left; width:100px; overflow:hidden; padding-top:5px;">
+						<div style="float:left; width:150px; overflow:hidden; padding-top:5px;">
 							#motto#
 						</div>
 						</div></div></div><div class="bb"><div></div></div>
 					</div>
 					</div>
 				</cfoutput>
-				</div>
 			</div>
 			
 			</div></div></div><div class="bb"><div></div></div></div>

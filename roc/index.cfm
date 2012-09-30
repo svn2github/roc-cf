@@ -114,6 +114,10 @@
 					<script src="app/tpl/habbo/js/accountsettings.js" type="text/javascript"></script>
 				</cfif>
 
+				<cfif p eq "articles">
+					<script src="app/tpl/habbo/js/articles.js" type="text/javascript"></script>
+				</cfif>
+
 				<cfif p eq "index">
 					<link rel="stylesheet" href="app/tpl/habbo/styles/frontpage.css" />
 					
