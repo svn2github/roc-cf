@@ -39,50 +39,48 @@
 					</div>
 				</cfoutput>
 			</cfloop>
-		</div>
+	</div>
 		
-		<script type="text/javascript">
-			document.observe("dom:loaded", function() { PromoSlideShow.init(); });
-		</script>
+	<script type="text/javascript">
+		document.observe("dom:loaded", function() { PromoSlideShow.init(); });
+	</script>
 		
 		
-		<div id="column1" class="column">
-		</div>
+	<div id="column1" class="column"></div>
 					
-		<div id="column2" class="column">
-			     		
-			<div class="habblet-container ">		
-	
-				<div id="twitterfeed-habblet-container">
-					<div id="twitterfeed-habblet-content"></div>
-					<script>new TWTR.Widget({
-                    version: 2,
-                    id: 'twitterfeed-habblet-content',
-                    type: 'search',
-                    search: 'from:Shojobo or from:Otaku_Studios',
-                    title: 'Official tweeters',
-                    subject: 'Otaku Studios',
-                    interval: 30000,
-                    width: 300,
-                    height: 186,
-                    theme: {
-                        shell: {
-                            background: '#4a4d4f',
-                            color: '#ffffff'
-                        },
-                        tweets: {
-                            background: '#ffffff',
-                            color: '#4a4d4f',
-                            links: '#fe6301'
-                        }
-                    },
-                    features: {
-                        scrollbar: true,
-                        loop: false,
-                        live: false,
-                        behavior: 'default'
-                    } }).render().start();
-			</script>
+	<div id="column2" class="column">
+		<div class="habblet-container ">		
+			<div id="twitterfeed-habblet-container">
+				<div id="twitterfeed-habblet-content"></div>
+				<script>
+					new TWTR.Widget({
+	                   version: 2,
+	                   id: 'twitterfeed-habblet-content',
+	                   type: 'search',
+	                   search: 'from:SojoboOtaku OR from:OtakuStudios',
+	                   title: 'Official tweeters',
+	                   subject: 'Otaku Studios',
+	                   interval: 30000,
+	                   width: 300,
+	                   height: 186,
+	                   theme: {
+	                       shell: {
+	                           background: '#4a4d4f',
+	                           color: '#ffffff'
+	                       },
+	                       tweets: {
+	                           background: '#ffffff',
+	                           color: '#4a4d4f',
+	                           links: '#fe6301'
+	                       }
+	                   },
+	                   features: {
+	                       scrollbar: true,
+	                       loop: false,
+	                       live: false,
+	                       behavior: 'default'
+	                   } }).render().start();
+				</script>
+			</div>
 		</div>
 	</div>
-</div>
