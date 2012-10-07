@@ -302,7 +302,7 @@ Your password does not meet the expected requirements. <br />
 	
 	<cfset StructClear(session)>
 	<cfset session.gender = bean.gender>
-	<cfset session.regUser = bean.username>
+	<cfset session.regUser = REMatch("^[-a-zA-Z0-9._:,]+$", bean.username)>
 	<cfset session.regEmail = bean.email>
 	
 	<cfif Len(bean.username) lte 1 OR Len(bean.username) gt 20>
