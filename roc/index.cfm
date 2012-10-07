@@ -118,6 +118,11 @@
 					<script src="app/tpl/habbo/js/articles.js" type="text/javascript"></script>
 				</cfif>
 
+				<cfif p eq "community">
+					<link rel="stylesheet" href="app/tpl/habbo/styles/lightweightmepage.css" />
+					<script type="text/javascript" src="app/tpl/habbo/js/lightweightmepage.js"></script>
+				</cfif>
+
 				<cfif p eq "index">
 					<link rel="stylesheet" href="app/tpl/habbo/styles/frontpage.css" />
 					
