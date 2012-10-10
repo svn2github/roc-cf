@@ -295,14 +295,8 @@ Your password does not meet the expected requirements. <br />
 		<cflocation url="?p=index" addtoken="no">
 	</cfif>
 	
-	<cfif not IsDefined("bean.gender")>
-		<!---<cflocation url="?p=register" addtoken="no">--->
-		Gender not being posted to completion process!
-	</cfif>
-	
 	<cfset StructClear(session)>
 	<cfset bean.username = REMatch("^[-a-zA-Z0-9._:,]+$", bean.username)>
-	<cfset session.gender = bean.gender>
 	<cfset session.regUser = bean.username>
 	<cfset session.regEmail = bean.email>
 	
