@@ -153,7 +153,7 @@
 				<cfif e eq "tos">
 					<div class="rounded" style="background-color: #cb2121;">
 					   <div id="error-title" class="error">
-You must accept the terms and conditions. <br />
+							You must accept the terms and conditions. <br />
 					   </div>
 					</div>
 				</cfif>
@@ -161,7 +161,7 @@ You must accept the terms and conditions. <br />
 				<cfif e eq "ulen">
 					<div class="rounded" style="background-color: #cb2121;">
 					   <div id="error-title" class="error">
-Your username does not meet the expected requirements. <br />
+							Your username does not meet the expected requirements. <br />
 					   </div>
 					</div>
 				</cfif>
@@ -169,7 +169,7 @@ Your username does not meet the expected requirements. <br />
 				<cfif e eq "utaken">
 					<div class="rounded" style="background-color: #cb2121;">
 					   <div id="error-title" class="error">
-That username is already taken. <br />
+							That username is already taken. <br />
 					   </div>
 					</div>
 				</cfif>
@@ -177,7 +177,7 @@ That username is already taken. <br />
 				<cfif e eq "einvalid">
 					<div class="rounded" style="background-color: #cb2121;">
 					   <div id="error-title" class="error">
-That email address is invalid. <br />
+							That email address is invalid. <br />
 					   </div>
 					</div>
 				</cfif>
@@ -185,7 +185,7 @@ That email address is invalid. <br />
 				<cfif e eq "perr">
 					<div class="rounded" style="background-color: #cb2121;">
 					   <div id="error-title" class="error">
-Your password does not meet the expected requirements. <br />
+							Your password does not meet the expected requirements. <br />
 					   </div>
 					</div>
 				</cfif>
@@ -231,7 +231,7 @@ Your password does not meet the expected requirements. <br />
 
 				<div class="field-content checkbox">
 				  <label>
-		<input type="checkbox" name="bean.marketing" id="marketing" value="true" class="checkbox-field"/>
+					<input type="checkbox" name="bean.marketing" id="marketing" value="true" class="checkbox-field"/>
 					Keep me updated about the latest <cfoutput>#sitename#</cfoutput> happenings, news and gossip!
 				  </label>
 				</div>
@@ -296,10 +296,15 @@ Your password does not meet the expected requirements. <br />
 	</cfif>
 	
 	<cfset StructClear(session)>
-	<cfset bean.username = REMatch("^[-a-zA-Z0-9._:,]+$", bean.username)>
-	<cfset session.regUser = bean.username>
-	<cfset session.regEmail = bean.email>
-	
+	<cfset session.regUser = form.bean.username>
+	<cfset test.username = REMatch("^[-a-zA-Z0-9._:,]+$", form.bean.username)>
+	<cfset session.gender = form.bean.gender>
+	<cfset session.regEmail = form.bean.email>
+
+	<cfif NOT ArrayLen(test.username)>
+		<cflocation url="?p=register&step=2&e=utaken" addtoken="no">
+	</cfif>
+
 	<cfif Len(bean.username) lte 1 OR Len(bean.username) gt 20>
 		<cflocation url="?p=register&step=2&e=ulen" addtoken="no">
 	</cfif>
@@ -327,13 +332,13 @@ Your password does not meet the expected requirements. <br />
 		<cflocation url="?p=register&step=2&e=utaken" addtoken="no">
 	</cfif>
 	
-	<cfif not IsDefined("bean.termsOfServiceSelection")>
+	<cfif not IsDefined("form.bean.termsOfServiceSelection")>
 		<cflocation url="?p=register&step=2&e=tos" addtoken="no">
 	</cfif>
 
 	<cfquery name = "RegisterAccount" datasource = "#config.DSN#">
 		INSERT INTO users (username, password, mail, gender, look, motto, last_online, rank, online, ip_last, auth_ticket, account_created, ip_reg, subscribed, referrer, credits, activity_points)
-		VALUES (<CFQUERYPARAM VALUE="#bean.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, <CFQUERYPARAM VALUE="#hash(bean.password, "SHA-512")#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="128">, <CFQUERYPARAM VALUE="#bean.email#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, 'm', '#defaultLook#', '#defaultMotto#', UNIX_TIMESTAMP(), '1', '0', '#ipaddress#', '', UNIX_TIMESTAMP(), '#ipaddress#', '<cfif IsDefined("bean.marketing")>1<cfelse>0</cfif>', '<cfif Len(bean.referrer) gt 1><CFQUERYPARAM VALUE="#bean.referrer#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50"><cfelse></cfif>', '#starterCredits#', '#starterPixels#')
+		VALUES (<CFQUERYPARAM VALUE="#bean.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, <CFQUERYPARAM VALUE="#hash(form.bean.password, "SHA-512")#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="128">, <CFQUERYPARAM VALUE="#form.bean.email#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, 'm', '#defaultLook#', '#defaultMotto#', UNIX_TIMESTAMP(), '1', '0', '#ipaddress#', '', UNIX_TIMESTAMP(), '#ipaddress#', '<cfif IsDefined("form.bean.marketing")>1<cfelse>0</cfif>', '<cfif Len(form.bean.referrer) gt 1><CFQUERYPARAM VALUE="#form.bean.referrer#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50"><cfelse></cfif>', '#starterCredits#', '#starterPixels#')
 	</cfquery>
 
 	<cfquery name = "NewAccount" datasource = "#config.DSN#">
