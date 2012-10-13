@@ -1,4 +1,8 @@
-<cfquery name="GetProfile" datasource="#config.DSN#">
+<cfif not StructKeyExists(session, "userid")>
+	<cflocation url="?p=index" addtoken="no">
+</cfif>
+
+<cfquery name="GetCredits" datasource="#config.DSN#">
 	SELECT users.username, users.motto, users.credits
 	FROM users
 	WHERE users.id = <CFQUERYPARAM VALUE="#session.userid#" CFSQLType="CF_SQL_INTGER">
@@ -7,7 +11,7 @@
 <div id="container">
 	<div id="content" style="position: relative" class="clearfix"><div>
 
-	<cfoutput query="GetProfile">
+	<cfoutput query="GetCredits">
 	<div class="habblet-container" style="float:left; width:770px;">		
 			<div class="cb clearfix darkgray "><div class="bt"><div></div></div><div class="i1"><div class="i2"><div class="i3">
 
