@@ -1,5 +1,5 @@
 <cfquery name="GetStaff" datasource="#config.DSN#">
-	SELECT * 
+	SELECT users.username, users.motto, users.rank
 	FROM users
 	WHERE rank > 1
 	ORDER BY rank DESC
