@@ -123,6 +123,10 @@
 					<script type="text/javascript" src="app/tpl/habbo/js/lightweightmepage.js"></script>
 				</cfif>
 
+				<cfif p eq "credits">
+					<link rel="stylesheet" href="app/tpl/habbo/styles/newcredits.css" />
+				</cfif>
+				
 				<cfif p eq "index">
 					<link rel="stylesheet" href="app/tpl/habbo/styles/frontpage.css" />
 					
