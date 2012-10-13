@@ -1,11 +1,5 @@
-<cfquery name="GetStaff" datasource="#config.DSN#">
-	SELECT * 
-	FROM users
-	WHERE rank > 1
-	ORDER BY rank DESC
-</cfquery>
 <cfquery name="GeteXperts" datasource="#config.DSN#">
-	SELECT users.*, user_achievements.*
+	SELECT users.username, users.motto
 	FROM users, user_achievements
 	WHERE achievement_id = 32 AND users.id = user_achievements.user_id
 </cfquery>
