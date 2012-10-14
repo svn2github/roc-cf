@@ -10,5 +10,6 @@
 		UPDATE users
 		SET password = <CFQUERYPARAM VALUE="#password#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="128">
 		WHERE id = #session.userid#
+		LIMIT 1
 	</cfquery>
 </cfif>
