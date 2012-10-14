@@ -2,6 +2,7 @@
 	SELECT badgeid
 	FROM ranks
 	WHERE id = #rank#
+	LIMIT 1
 </cfquery>
 
 <cfset badgeid= getBadge.badgeid>
