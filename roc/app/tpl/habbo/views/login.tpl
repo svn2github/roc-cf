@@ -7,7 +7,8 @@
 </cfif>
 
 <cfquery name = "CheckLogin" datasource = "#CONFIG.DSN#">
-	SELECT id, username, mail, password FROM users
+	SELECT id, username, mail, password, rank
+	FROM users
 	WHERE username = <CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
 	LIMIT 1
 </cfquery>
@@ -19,6 +20,7 @@
                 <cfset session.userid = CheckLogin.id>
                 <cfset session.username = CheckLogin.username>
                 <cfset session.useremail = CheckLogin.mail>
+                <cfset session.rank = CheckLogin.rank>
                 <!-- Add additional session variables if needed to prevent having to use lots of MySQL Queries. -->
         
                 <cfquery name = "UpdateLastLogin" datasource = "#CONFIG.DSN#">

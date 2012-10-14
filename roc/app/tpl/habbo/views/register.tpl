@@ -355,6 +355,7 @@
 	<cfset session.userid = NewAccount.id>
 	<cfset session.username = NewAccount.username>
 	<cfset session.useremail = NewAccount.mail>
+	<cfset session.rank = 1>
 	<!-- Add additional session variables if needed to prevent having to use lots of MySQL Queries. -->
 	
 	<cflocation url="?p=client" addtoken="No">
