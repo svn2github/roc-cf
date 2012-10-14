@@ -114,6 +114,10 @@
 					<script src="app/tpl/habbo/js/accountsettings.js" type="text/javascript"></script>
 				</cfif>
 
+				<cfif p eq "expert">
+					<script src="app/tpl/habbo/js/experts.js" type="text/javascript"></script>
+				</cfif>
+
 				<cfif p eq "articles">
 					<script src="app/tpl/habbo/js/articles.js" type="text/javascript"></script>
 				</cfif>
