@@ -9,19 +9,19 @@
 		<!-- Habboon VIP -->
 		<cfif i is 178>
 			<cfset IsVIP = "true">
-			<cfset session.vip = 1>
-			<cfif userexists.vip is "0">
+			<cfif session.vip eq 0>
 				<cfquery name = "GiftVIP" datasource = "#DSN#">
 					UPDATE users
 					SET vip = '1'
 					WHERE username = '#form.username#'
 				</cfquery>
+				<cfset session.vip = 1>
 			</cfif>
 		</cfif>
 	</cfloop>
 </cfif>
 
-<cfif IsVIP is "false">
+<cfif IsVIP is "false" AND session.vip eq 1>
 	<cfset session.vip = 0>
 	<cfquery name = "GiftVIP" datasource = "#DSN#">
 		UPDATE users
