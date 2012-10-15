@@ -32,8 +32,7 @@
 					</div>
 					<div style="float:left; text-align:center; width:260px; overflow:hidden; padding:5px;">
 						VIP is a purchased benefit which gives you extra features as well as helps us keep running the hotel to it's best ability.<br /><br />
-						Sorry, VIP is not avaliable at the moment!
-						<!-- You can buy VIP from Otaku-Studios.com by visiting your Profile Settings (User CP) then clicking Paid Subscriptions.-->
+						You can buy VIP from Otaku-Studios.com by visiting your Profile Settings (User CP) then clicking Paid Subscriptions. Don't forget to add your forum name to your account settings here on Habboon!
 					</div>
 					</div></div></div><div class="bb"><div></div></div>
 				</div>
