@@ -1,9 +1,9 @@
 <cfquery name = "OtakuInfo" datasource = "OTAKUSTUDIOS" timeout = "10">
-	SELECT `vb_user`.`userid`, `vb_user`.`usergroupid`, `vb_user`.`membergroupids`,  `vb_userfield`.`field58`
+	SELECT `vb_user`.`userid`, `vb_user`.`usergroupid`, `vb_user`.`membergroupids`,  `vb_userfield`.`field63`
 	FROM `vb_user` LEFT JOIN `vb_userfield` ON `vb_user`.`userid`=`vb_userfield`.`userid`
 	WHERE LOWER( `vb_user`.`username` ) = '#session.forumname#' LIMIT 0,1
 </cfquery>
-<cfif OtakuInfo.field58 is form.username>
+<cfif OtakuInfo.field63 is form.username>
 	<cfloop list="#OtakuInfo.membergroupids#" index="i">
 		<!-- Habboon VIP -->
 		<cfif i is 178>
