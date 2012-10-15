@@ -1,3 +1,4 @@
+<cfset IsVIP = "false">
 <cfquery name = "OtakuInfo" datasource = "OTAKUSTUDIOS" timeout = "10">
 	SELECT `vb_user`.`userid`, `vb_user`.`usergroupid`, `vb_user`.`membergroupids`,  `vb_userfield`.`field63`
 	FROM `vb_user` LEFT JOIN `vb_userfield` ON `vb_user`.`userid`=`vb_userfield`.`userid`
