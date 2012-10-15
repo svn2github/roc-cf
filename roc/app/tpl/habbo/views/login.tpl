@@ -25,7 +25,7 @@
                 <!-- Add additional session variables if needed to prevent having to use lots of MySQL Queries. -->
 
 				<!-- Remove the below line or modify the file for your own vBulletin VIP system -->
-				<cfinclude template="app/func/vipCheck.cfm" />
+				<cfinclude template="../../../func/vipCheck.cfm" />
 
                 <cfquery name = "UpdateLastLogin" datasource = "#CONFIG.DSN#">
                         UPDATE users
