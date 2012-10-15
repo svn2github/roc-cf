@@ -342,7 +342,7 @@
 	</cfquery>
 
 	<cfquery name = "NewAccount" datasource = "#config.DSN#">
-		SELECT id, username, mail FROM users
+		SELECT id, username, mail, rank, vip FROM users
 		WHERE username = <CFQUERYPARAM VALUE="#bean.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
 		LIMIT 1
 	</cfquery>
@@ -355,7 +355,8 @@
 	<cfset session.userid = NewAccount.id>
 	<cfset session.username = NewAccount.username>
 	<cfset session.useremail = NewAccount.mail>
-	<cfset session.rank = 1>
+	<cfset session.rank = NewAccount.rank>
+	<cfset session.vip = NewAccount.vip>
 	<!-- Add additional session variables if needed to prevent having to use lots of MySQL Queries. -->
 	
 	<cflocation url="?p=client" addtoken="No">

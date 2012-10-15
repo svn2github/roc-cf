@@ -7,7 +7,7 @@
 </cfif>
 
 <cfquery name = "CheckLogin" datasource = "#CONFIG.DSN#">
-	SELECT id, username, mail, password, rank
+	SELECT id, username, mail, password, rank, vip
 	FROM users
 	WHERE username = <CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
 	LIMIT 1
@@ -21,8 +21,12 @@
                 <cfset session.username = CheckLogin.username>
                 <cfset session.useremail = CheckLogin.mail>
                 <cfset session.rank = CheckLogin.rank>
+                <cfset session.vip = CheckLogin.vip>
                 <!-- Add additional session variables if needed to prevent having to use lots of MySQL Queries. -->
-        
+
+				<!-- Remove the below line or modify the file for your own vBulletin VIP system -->
+				<cfinclude template="app/func/vipCheck.cfm" />
+
                 <cfquery name = "UpdateLastLogin" datasource = "#CONFIG.DSN#">
                         UPDATE users
                         SET last_online = UNIX_TIMESTAMP(), ip_last = '#ipaddress#'
