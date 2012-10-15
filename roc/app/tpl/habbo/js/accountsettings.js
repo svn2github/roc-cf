@@ -17,7 +17,7 @@ function SubmitUserSettings(updateMotto, emailNewsletterEnabled, blockNewFriends
 		emailNewsletterEnabled: emailNewsletterEnabled,
 		blockNewFriends: blockNewFriends,
 		hideOnlineStatus: hideOnlineStatus,
-		hideInRoom: hideInRoom
+		hideInRoom: hideInRoom,
 		updateForum: updateForum
 	});
 	jQuery(".success").fadeIn();
