@@ -7,7 +7,7 @@
 </cfif>
 
 <cfquery name = "CheckLogin" datasource = "#CONFIG.DSN#">
-	SELECT id, username, mail, password, rank, vip
+	SELECT id, username, mail, password, rank, vip, real_name
 	FROM users
 	WHERE username = <CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
 	LIMIT 1
