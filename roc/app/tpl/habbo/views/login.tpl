@@ -22,6 +22,7 @@
                 <cfset session.useremail = CheckLogin.mail>
                 <cfset session.rank = CheckLogin.rank>
                 <cfset session.vip = CheckLogin.vip>
+                <cfset session.forumname = CheckLogin.real_name>
                 <!-- Add additional session variables if needed to prevent having to use lots of MySQL Queries. -->
 
 				<!-- Remove the below line or modify the file for your own vBulletin VIP system -->

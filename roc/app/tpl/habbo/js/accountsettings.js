@@ -9,7 +9,7 @@ function ChangeTab(totab){
 	});
 }
 
-function SubmitUserSettings(updateMotto, emailNewsletterEnabled, blockNewFriends, hideOnlineStatus, hideInRoom){
+function SubmitUserSettings(updateMotto, emailNewsletterEnabled, blockNewFriends, hideOnlineStatus, hideInRoom, updateForum){
 	jQuery(".success").fadeOut();
 	jQuery.post("app/func/updateUserSettings.cfm", 
 	{ 
@@ -18,6 +18,7 @@ function SubmitUserSettings(updateMotto, emailNewsletterEnabled, blockNewFriends
 		blockNewFriends: blockNewFriends,
 		hideOnlineStatus: hideOnlineStatus,
 		hideInRoom: hideInRoom
+		updateForum: updateForum
 	});
 	jQuery(".success").fadeIn();
 }

@@ -357,6 +357,7 @@
 	<cfset session.useremail = NewAccount.mail>
 	<cfset session.rank = NewAccount.rank>
 	<cfset session.vip = NewAccount.vip>
+	<cfset session.forumname = "">
 	<!-- Add additional session variables if needed to prevent having to use lots of MySQL Queries. -->
 	
 	<cflocation url="?p=client" addtoken="No">

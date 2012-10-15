@@ -9,7 +9,7 @@
 
 	<form action="app/func/updateUserSettings.cfm" method="post" id="profileForm" onsubmit="return false;">
 		<cfquery name="getUserSettings" datasource="#config.DSN#">
-			SELECT motto, subscribed, block_newfriends, hide_online, hide_inroom
+			SELECT motto, subscribed, block_newfriends, hide_online, hide_inroom, real_name
 			FROM users
 			WHERE username = "#session.username#"
 		</cfquery>
@@ -62,6 +62,18 @@
 			<label><input type="radio" name="hideInRoom" value="0" <cfif getUserSettings.hide_inroom eq "0">checked="checked"</cfif>>My friends</label>
 		</p>
 
+		<h3>Otaku Studios Account</h3>
+		
+		<p>
+		If you've made a VIP purchase then you'll need to link up your Otaku Studios account with Habboon, enter your Otaku Studios username here.
+		</p>
+
+		<p>
+		<label>Otaku Studios Username:
+		<input type="text" name="updateForum" size="32" maxlength="32" value="<cfoutput>#getUserSettings.real_name#</cfoutput>" id="avatarforum"></label>
+		</p>
+
+
 		<div class="settings-buttons">
 			<a href="#" class="new-button" style="" id="profileForm-submit"><b>Save changes</b><i></i></a>
 		</div>
@@ -70,12 +82,12 @@
 	<script type="text/javascript">
 		$("profileForm-submit").observe("click", function(e) 
 			{ 
-				SubmitUserSettings(jQuery("#avatarmotto").val(), jQuery("#emailNewsletterEnabled:checkbox:checked").val(), jQuery("#blockNewFriends:checkbox:checked").val(), jQuery("input[name=hideOnlineStatus]:checked").val(), jQuery("input[name=hideInRoom]:checked").val())
+				SubmitUserSettings(jQuery("#avatarmotto").val(), jQuery("#emailNewsletterEnabled:checkbox:checked").val(), jQuery("#blockNewFriends:checkbox:checked").val(), jQuery("input[name=hideOnlineStatus]:checked").val(), jQuery("input[name=hideInRoom]:checked").val(), jQuery("#avatarforum").val())
 			}
 		);
 		$('avatarmotto').observe('keypress', function(event){
 		    if(event.keyCode == Event.KEY_RETURN) {
-				SubmitUserSettings(jQuery("#avatarmotto").val(), jQuery("#emailNewsletterEnabled:checkbox:checked").val(), jQuery("#blockNewFriends:checkbox:checked").val(), jQuery("input[name=hideOnlineStatus]:checked").val(), jQuery("input[name=hideInRoom]:checked").val())
+				SubmitUserSettings(jQuery("#avatarmotto").val(), jQuery("#emailNewsletterEnabled:checkbox:checked").val(), jQuery("#blockNewFriends:checkbox:checked").val(), jQuery("input[name=hideOnlineStatus]:checked").val(), jQuery("input[name=hideInRoom]:checked").val(), jQuery("#avatarforum").val())
 		    }
 		});
 		</script>
