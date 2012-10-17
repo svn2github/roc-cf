@@ -8,6 +8,11 @@
 	WHERE users.id = <CFQUERYPARAM VALUE="#session.userid#" CFSQLType="CF_SQL_INTGER">
 </cfquery>
 
+<cfquery name="GetCreditAmount" datasource="#config.DSN#" cachedwithin="#createTimeSpan(0,12,0,0)#">
+	SELECT server_settings.credits
+	FROM server_settings
+</cfquery>
+
 <div id="container">
 	<div id="content" style="position: relative" class="clearfix"><div>
 
@@ -21,15 +26,15 @@
 				<p><span class="redeem-balance-amount">#credits#</span></p>
 			</div>
 
-			<div class="redeem-redeeming-text"><p class="redeeming-text">Enter your voucher code</p></div>
-
-			<div class="redeem-form-container clearfix">
-				
+<!---
+			<div class="redeem-form-container clearfix" style="padding-top:12px;">
 				<div class="redeem-redeeming">
-					<div><input type="text" name="voucherCode" value="" class="redeemcode" size="8" maxlength="15"></div>
-					<div class="redeem-redeeming-button"><a href="##" class="new-button green-button redeem-submit exclude"><b><span></span>Redeem</b><i></i></a></div>
+					<b>About Credits</b>: Credits are automatically given out every 15 minutes, currently you will receive #GetCreditAmount.credits# per 15 minutes while logged into #sitename#
 				</div>
-				<!-- <div class="redeem-past-transactions"><a href="/credits/history"><b>Help - Redeem Credits</b></a></div> -->
+			</div> --->
+			<div class="redeem-balance" style="width:594px;height:40px;">
+				<p class="redeem-balance-text"><b>About Credits</b></p>
+				<p class="redeem-balance-text">Credits are automatically given out every 15 minutes, currently you will receive #GetCreditAmount.credits# per 15 minutes while logged into #sitename#.</p>
 			</div>
 		</div>
 
