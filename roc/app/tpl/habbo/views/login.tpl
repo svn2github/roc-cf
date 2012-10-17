@@ -26,8 +26,15 @@
                 <!-- Add additional session variables if needed to prevent having to use lots of MySQL Queries. -->
 
 				<!-- Remove the below line or modify the file for your own vBulletin VIP system -->
-				<cfinclude template="../../../func/vipCheck.cfm" />
-
+				<cftry>
+					<cfinclude template="../../../func/vipCheck.cfm" />
+					<cfcatch>
+						<br /><br />
+						<b>App Error: Unable to check for VIP. Please check that your vipCheck.cfm is setup correctly.</b>
+						<br /><br />
+						<cfset session.vip = 0>
+					</cfcatch>
+				</cftry>
                 <cfquery name = "UpdateLastLogin" datasource = "#CONFIG.DSN#">
                         UPDATE users
                         SET last_online = UNIX_TIMESTAMP(), ip_last = '#ipaddress#'
