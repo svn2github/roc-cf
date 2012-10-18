@@ -3,7 +3,7 @@
 	<cfquery name = "OtakuInfo" datasource = "OTAKUSTUDIOS" timeout = "10">
 		SELECT `vb_user`.`userid`, `vb_user`.`usergroupid`, `vb_user`.`membergroupids`,  `vb_userfield`.`field63`
 		FROM `vb_user` LEFT JOIN `vb_userfield` ON `vb_user`.`userid`=`vb_userfield`.`userid`
-		WHERE LOWER( `vb_user`.`username` ) = '#session.forumname#' LIMIT 0,1
+		WHERE LOWER( `vb_user`.`username` ) = <CFQUERYPARAM VALUE="#session.forumname#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50"> LIMIT 0,1
 	</cfquery>
 	<cfif OtakuInfo.field63 is form.username>
 		<cfloop list="#OtakuInfo.membergroupids#" index="i">
@@ -14,7 +14,7 @@
 					<cfquery name = "GiftVIP" datasource = "#DSN#">
 						UPDATE users
 						SET vip = '1'
-						WHERE username = '#form.username#'
+						WHERE username = <CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
 					</cfquery>
 					<cfset session.vip = 1>
 				</cfif>
@@ -27,7 +27,7 @@
 		<cfquery name = "GiftVIP" datasource = "#DSN#">
 			UPDATE users
 			SET vip = '0'
-			WHERE username = '#form.username#'
+			WHERE username = <CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
 		</cfquery>
 	</cfif>
 	<cfcatch>

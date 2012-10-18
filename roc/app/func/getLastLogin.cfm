@@ -1,7 +1,7 @@
 <cfquery name="getLastOnline" datasource="#config.DSN#">
 	SELECT last_online
 	FROM users
-	WHERE id = #session.userid#
+	WHERE id = <CFQUERYPARAM VALUE="#session.userid#" CFSQLType="CF_SQL_INTGER">
 	LIMIT 1
 </cfquery>
 
