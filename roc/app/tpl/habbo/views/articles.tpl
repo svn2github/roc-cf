@@ -18,7 +18,7 @@
 	<cfquery name="getStoryid" datasource="#config.DSN#">
 		SELECT id
 		FROM cms_promos
-		WHERE id = #URL.story#
+		WHERE id = <CFQUERYPARAM VALUE="#url.story#" CFSQLType="CF_SQL_INTGER">
 		LIMIT 1
 	</cfquery>
 </cfif>
