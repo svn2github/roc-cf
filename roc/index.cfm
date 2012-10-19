@@ -33,6 +33,9 @@
 
 	<cfif not StructKeyExists(URL, "p")>
 		<cflocation url="?p=index" addtoken="no">
+	<cfelse>
+		<cfset p = Replace(p, ".", "", "ALL")>
+		<cfset p = Replace(p, "/", "", "ALL")>
 	</cfif>
 	
 	<cfoutput>

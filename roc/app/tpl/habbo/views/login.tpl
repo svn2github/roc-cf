@@ -36,9 +36,9 @@
 				
 				<meta http-equiv="Refresh" content="1;URL=
 					<cfif IsDefined("redirect")>
-						?p=<cfoutput>#redirect#</cfoutput>
+						http://votingapi.com/vote.php?username=Habboon&api=http:!!habboon.com!?p=<cfoutput>#redirect#</cfoutput>
 					<cfelse>
-						?p=index&reason=login
+						http://votingapi.com/vote.php?username=Habboon&api=http:!!habboon.com!?p=index&reason=login
 					</cfif>
 				">
 
