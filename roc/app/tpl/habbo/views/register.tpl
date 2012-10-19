@@ -338,7 +338,7 @@
 
 	<cfquery name = "RegisterAccount" datasource = "#config.DSN#">
 		INSERT INTO users (username, password, mail, gender, look, motto, last_online, rank, online, ip_last, auth_ticket, account_created, ip_reg, subscribed, referrer, credits, activity_points)
-		VALUES (<CFQUERYPARAM VALUE="#bean.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, <CFQUERYPARAM VALUE="#hash(form.bean.password, "SHA-512")#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="128">, <CFQUERYPARAM VALUE="#form.bean.email#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, 'm', '#defaultLook#', '#defaultMotto#', UNIX_TIMESTAMP(), '1', '0', '#ipaddress#', '', UNIX_TIMESTAMP(), '#ipaddress#', '<cfif IsDefined("form.bean.marketing")>1<cfelse>0</cfif>', '<cfif Len(form.bean.referrer) gt 1><CFQUERYPARAM VALUE="#form.bean.referrer#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50"><cfelse></cfif>', '#starterCredits#', '#starterPixels#')
+		VALUES (<CFQUERYPARAM VALUE="#bean.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, <CFQUERYPARAM VALUE="#hash(form.bean.password, "SHA-512")#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="128">, <CFQUERYPARAM VALUE="#form.bean.email#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, 'm', '#defaultLook#', '#defaultMotto#', UNIX_TIMESTAMP(), '1', '0', '#ipaddress#', '', UNIX_TIMESTAMP(), '#ipaddress#', '<cfif IsDefined("form.bean.marketing")>1<cfelse>0</cfif>', <CFQUERYPARAM VALUE="#form.bean.referrer#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">, '#starterCredits#', '#starterPixels#')
 	</cfquery>
 
 	<cfquery name = "NewAccount" datasource = "#config.DSN#">
