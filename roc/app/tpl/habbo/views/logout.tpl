@@ -1,4 +1,4 @@
-<cfset structDelete(session)>
+<cfset StructClear(session)>
 
 <div id="container">
 	<div class="cb process-template-box clearfix">
