@@ -17,7 +17,7 @@
 			    <ul class="box-tabs"></ul>
 			</div>
 
-			<div class="box-content" style="background-image:url('app/tpl/habbo/images/backgrounds/Habbo_StaffPage_v2.gif'); width:890px; height:1340px; padding-left:55px;">
+			<div class="box-content" style="background-image:url('app/tpl/habbo/images/backgrounds/Habbo_StaffPage_v2.gif'); width:857px; height:1340px; padding-left:55px;">
 				<div style="display:block;">
 				<cfoutput query="GetStaff">
 					<div class="habblet-container" style="width:280px; float:left; height: 155px">

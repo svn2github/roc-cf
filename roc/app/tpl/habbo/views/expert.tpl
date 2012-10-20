@@ -16,7 +16,7 @@
 			    <ul class="box-tabs"></ul>
 			</div>
 			
-			<div class="box-content" style="background-image:url('app/tpl/habbo/images/backgrounds/habbox.gif'); width:890px; height:1340px; padding-left:55px;">
+			<div class="box-content" style="background-image:url('app/tpl/habbo/images/backgrounds/habbox.gif'); width:857px; height:1340px; padding-left:55px;">
 				<cfoutput query="GeteXperts">
 					<div class="habblet-container" style="width:280px; height: 155px; display:inline-block; " id="#id#">
 					<div class="cb clearfix blue">

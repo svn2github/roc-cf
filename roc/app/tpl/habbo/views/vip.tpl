@@ -16,7 +16,7 @@
 			    <ul class="box-tabs"></ul>
 			</div>
 
-			<div class="box-content" style="background-image:url('app/tpl/habbo/images/backgrounds/vip_group.png'); width:890px; height:1340px; padding-left:55px;">
+			<div class="box-content" style="background-image:url('app/tpl/habbo/images/backgrounds/vip_group.png'); width:857px; height:1340px; padding-left:55px;">
 				<div style="display:block;">
 				
 				<!-- Background Display Purposes Only -->
