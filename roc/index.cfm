@@ -84,22 +84,26 @@
 				</cfif>
 				
 				<cfif p eq "maintenance">
-					<link rel="stylesheet" href="app/tpl/habbo/styles/maintenance.css" />
+					<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+					<script type="text/javascript" src="app/tpl/habbo/js/jquery.tweet.js"></script>
+					<link href="app/tpl/habbo/styles/maintenance.css" rel="stylesheet" type="text/css" />
 				</cfif>
 				
-				<cfif p eq "logout">
+				<cfif p eq "logout" OR p eq "client_disconnect">
 					<link rel="stylesheet" href="app/tpl/habbo/styles/com.css" />
 					<link rel="stylesheet" href="app/tpl/habbo/styles/process.css" />
 					<script type="text/javascript" src="app/tpl/habbo/js/com.js"></script>
 				</cfif>
 				
 				<cfif p neq "index">
-					<link rel="stylesheet" href="app/tpl/habbo/styles/common.css" />
-					<script type="text/javascript" src="app/tpl/habbo/js/common.js"></script>
-					<script type="text/javascript" src="app/tpl/habbo/js/visual.js"></script>
-					<script type="text/javascript" src="app/tpl/habbo/js/libs.js"></script>
-					<script type="text/javascript" src="app/tpl/habbo/js/libs2.js"></script>
-					<script type="text/javascript" src="app/tpl/habbo/js/homeview.js"></script>
+					<cfif p neq "maintenance">
+						<link rel="stylesheet" href="app/tpl/habbo/styles/common.css" />
+						<script type="text/javascript" src="app/tpl/habbo/js/common.js"></script>
+						<script type="text/javascript" src="app/tpl/habbo/js/visual.js"></script>
+						<script type="text/javascript" src="app/tpl/habbo/js/libs.js"></script>
+						<script type="text/javascript" src="app/tpl/habbo/js/libs2.js"></script>
+						<script type="text/javascript" src="app/tpl/habbo/js/homeview.js"></script>
+					</cfif>
 				</cfif>
 				
 				<cfif p eq "register">
@@ -184,9 +188,9 @@
 				<![endif]-->
 			</head>
 			
-			<body id="<cfif p eq "index">frontpage<cfelse>#p#</cfif>" class="<cfif p eq "logout">process-template</cfif>">
+			<body id="<cfif p eq "index">frontpage<cfelse>#p#</cfif>" class="<cfif p eq "logout" or p eq "client_disconnect">process-template</cfif>">
 				<!--- Include header (on pages except those listed below) --->
-				<cfif p eq "index" or p eq "register" or p eq "logout" or p eq "login" or p eq "imager" or p eq "client">
+				<cfif p eq "index" or p eq "register" or p eq "logout" or p eq "login" or p eq "imager" or p eq "client" or p eq "client_disconnect" or p eq "maintenance">
 				<cfelse>
 					<cfinclude template="app/tpl/#config.theme#/statics/header.tpl">
 				</cfif>
@@ -207,7 +211,7 @@
 					</cftry>			
 						
 				<!--- Include footer (on pages except those listed below) --->
-				<cfif p eq "register" or p eq "logout" or p eq "client">
+				<cfif p eq "register" or p eq "logout" or p eq "client" or p eq "client_disconnect">
 				<cfelse>
 					<cfinclude template="app/tpl/#config.theme#/statics/footer.tpl">
 				</cfif>
