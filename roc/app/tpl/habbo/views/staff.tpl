@@ -27,7 +27,7 @@
 						<div style="float:left">
 							<img alt="#username#" src="avatarimage.cfm?user=#username#&direction=2&head_direction=3&gesture=sml&img_format=png&size=&action=wav">
 						</div>
-						<div style="float:left">
+						<div style="float:left; padding-top: 5px;">
 							<cfinclude template="../../../func/getRankBadge.cfm">
 							<cfif online is "1">
 								<img alt="online" src="app/tpl/habbo/images/habbo_online.gif"><br />
