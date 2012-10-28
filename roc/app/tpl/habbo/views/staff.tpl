@@ -1,5 +1,5 @@
 <cfquery name="GetStaff" datasource="#config.DSN#">
-	SELECT users.username, users.motto, users.rank
+	SELECT users.username, users.motto, users.rank, users.online
 	FROM users
 	WHERE rank > 1
 	ORDER BY rank DESC
@@ -29,6 +29,11 @@
 						</div>
 						<div style="float:left">
 							<cfinclude template="../../../func/getRankBadge.cfm">
+							<cfif online is "1">
+								<img alt="online" src="app/tpl/habbo/images/habbo_online.gif"><br />
+							<cfelse>
+								<img alt="offline" src="app/tpl/habbo/images/habbo_offline.gif"><br />
+							</cfif>
 							<img alt="badge" src="app/tpl/habbo/images/badges/#badgeid#.gif"><br />
 							<img alt="badge" src="app/tpl/habbo/images/flags/wor.png">
 						</div>

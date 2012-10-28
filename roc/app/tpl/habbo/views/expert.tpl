@@ -1,5 +1,5 @@
 <cfquery name="GeteXperts" datasource="#config.DSN#">
-	SELECT users.username, users.motto, users.id
+	SELECT users.username, users.motto, users.id, users.online
 	FROM users, user_achievements
 	WHERE achievement_id = 32 AND users.id = user_achievements.user_id
 </cfquery>
@@ -28,6 +28,11 @@
 							<img alt="#username#" src="avatarimage.cfm?user=#username#&direction=2&head_direction=3&gesture=sml&img_format=png&size=&action=wav">
 						</div>
 						<div style="float:left">
+							<cfif online is "1">
+								<img alt="online" src="app/tpl/habbo/images/habbo_online.gif"><br />
+							<cfelse>
+								<img alt="offline" src="app/tpl/habbo/images/habbo_offline.gif"><br />
+							</cfif>
 							<img alt="badge" src="app/tpl/habbo/images/badges/XXX.gif"><br />
 							<img alt="badge" src="app/tpl/habbo/images/flags/wor.png">
 						</div>

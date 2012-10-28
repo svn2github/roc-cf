@@ -1,5 +1,5 @@
 <cfquery name="GetVIP" datasource="#config.DSN#">
-	SELECT users.username, users.motto
+	SELECT users.username, users.motto, users.online
 	FROM users
 	WHERE users.vip = '1'
 </cfquery>
@@ -51,6 +51,11 @@
 							<img alt="#username#" src="avatarimage.cfm?user=#username#&direction=2&head_direction=3&gesture=sml&img_format=png&size=&action=wav">
 						</div>
 						<div style="float:left">
+							<cfif online is "1">
+								<img alt="online" src="app/tpl/habbo/images/habbo_online.gif"><br />
+							<cfelse>
+								<img alt="offline" src="app/tpl/habbo/images/habbo_offline.gif"><br />
+							</cfif>
 							<img alt="badge" src="app/tpl/habbo/images/badges/VIP.gif"><br />
 							<img alt="badge" src="app/tpl/habbo/images/flags/wor.png">
 						</div>
