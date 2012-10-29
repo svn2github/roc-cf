@@ -41,7 +41,7 @@
 						<div style="float:left; padding:5px 5px 0 5px; font-weight:bold; text-align:center">
 							#rankname#
 						</div>
-						<div style="float:left; padding:5px 5px 0 5px;">
+						<div style="float:left; width:140px; padding:5px 5px 0 5px;">
 							#motto#
 						</div>
 						</div></div></div><div class="bb"><div></div></div>
