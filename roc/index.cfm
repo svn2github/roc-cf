@@ -1,4 +1,6 @@
-﻿<!--
+﻿<!DOCTYPE html>
+
+<!--
                  |
   \_            /;
   `\~--.._     //'
@@ -40,7 +42,6 @@
 	
 	<cfoutput>
 		
-		<!DOCTYPE html>
 		<html>
 			<head>
 				<title>
@@ -83,12 +84,6 @@
 					<script type="text/javascript" src="app/tpl/habbo/js/lightweightmepage.js"></script>
 				</cfif>
 				
-				<cfif p eq "maintenance">
-					<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-					<script type="text/javascript" src="app/tpl/habbo/js/jquery.tweet.js"></script>
-					<link href="app/tpl/habbo/styles/maintenance.css" rel="stylesheet" type="text/css" />
-				</cfif>
-				
 				<cfif p eq "logout" OR p eq "client_disconnect">
 					<link rel="stylesheet" href="app/tpl/habbo/styles/com.css" />
 					<link rel="stylesheet" href="app/tpl/habbo/styles/process.css" />
@@ -104,6 +99,15 @@
 						<script type="text/javascript" src="app/tpl/habbo/js/libs2.js"></script>
 						<script type="text/javascript" src="app/tpl/habbo/js/homeview.js"></script>
 					</cfif>
+				</cfif>
+				
+				<cfif p neq "index">
+					<link rel="stylesheet" href="app/tpl/habbo/styles/common.css" />
+					<script type="text/javascript" src="app/tpl/habbo/js/common.js"></script>
+					<script type="text/javascript" src="app/tpl/habbo/js/visual.js"></script>
+					<script type="text/javascript" src="app/tpl/habbo/js/libs.js"></script>
+					<script type="text/javascript" src="app/tpl/habbo/js/libs2.js"></script>
+					<script type="text/javascript" src="app/tpl/habbo/js/homeview.js"></script>
 				</cfif>
 				
 				<cfif p eq "register">
@@ -190,7 +194,7 @@
 			
 			<body id="<cfif p eq "index">frontpage<cfelse>#p#</cfif>" class="<cfif p eq "logout" or p eq "client_disconnect">process-template</cfif>">
 				<!--- Include header (on pages except those listed below) --->
-				<cfif p eq "index" or p eq "register" or p eq "logout" or p eq "login" or p eq "imager" or p eq "client" or p eq "client_disconnect" or p eq "maintenance">
+				<cfif p eq "index" or p eq "register" or p eq "logout" or p eq "login" or p eq "imager" or p eq "client" or p eq "client_disconnect">
 				<cfelse>
 					<cfinclude template="app/tpl/#config.theme#/statics/header.tpl">
 				</cfif>
