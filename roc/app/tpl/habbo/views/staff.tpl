@@ -29,6 +29,7 @@
 						</div>
 						<div style="float:left; padding-top: 5px;">
 							<cfinclude template="../../../func/getRankBadge.cfm">
+							<cfinclude template="../../../func/getRankName.cfm">
 							<cfif online is "1">
 								<img alt="online" src="app/tpl/habbo/images/habbo_online.gif"><br />
 							<cfelse>
@@ -37,7 +38,10 @@
 							<img alt="badge" src="app/tpl/habbo/images/badges/#badgeid#.gif"><br />
 							<img alt="badge" src="app/tpl/habbo/images/flags/wor.png">
 						</div>
-						<div style="float:left; width:150px; overflow:hidden; padding-top:5px;">
+						<div style="float:left; width:150px; overflow:hidden; padding:5px 5px 0 5px; font-weight:bold">
+							#rankname#
+						</div>
+						<div style="float:left; width:150px; overflow:hidden; padding:5px 5px 0 5px;">
 							#motto#
 						</div>
 						</div></div></div><div class="bb"><div></div></div>
