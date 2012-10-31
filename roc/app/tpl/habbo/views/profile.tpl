@@ -19,6 +19,25 @@
 	WHERE user = '#session.userid#'
 </cfquery>
 
+<cfif not getHome.recordcount>
+	<!-- We don't have a home - let's make one! :D -->
+	<cfquery name = "HaveaHome" datasource = "#config.DSN#">
+		INSERT INTO cms_homes (user)
+		VALUES (#session.userid#)
+	</cfquery>
+
+	<cfquery name = "HaveaProfileWidget" datasource = "#config.DSN#">
+		INSERT INTO cms_widgets (wX, wY, wZ, type, user)
+		VALUES (50,50,1,1,#session.userid#)
+	</cfquery>
+</cfif>
+
+<cfquery name = "getHome" datasource = "#config.DSN#">
+	SELECT *
+	FROM cms_homes
+	WHERE user = '#session.userid#'
+</cfquery>
+
 <cfquery name = "LoadStickers" datasource = "#config.DSN#">
 	SELECT *
 	FROM cms_stickers
