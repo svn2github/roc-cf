@@ -13,6 +13,7 @@
 		<div class="cb settings">
 			<div class="bt"><div></div></div><div class="i1"><div class="i2"><div class="i3">
 			<div class="box-tabs-container box-tabs-left clearfix">
+			    <a href="#" id="myhabbo-group-tools-button" class="new-button dark-button edit-icon" style="float:left"><b><span></span>Edit</b><i></i></a>
 			    <h2 class="page-owner">Staff</h2>
 			    <ul class="box-tabs"></ul>
 			</div>
