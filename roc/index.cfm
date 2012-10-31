@@ -90,18 +90,7 @@
 					<script type="text/javascript" src="app/tpl/habbo/js/com.js"></script>
 				</cfif>
 				
-				<cfif p neq "index">
-					<cfif p neq "maintenance">
-						<link rel="stylesheet" href="app/tpl/habbo/styles/common.css" />
-						<script type="text/javascript" src="app/tpl/habbo/js/common.js"></script>
-						<script type="text/javascript" src="app/tpl/habbo/js/visual.js"></script>
-						<script type="text/javascript" src="app/tpl/habbo/js/libs.js"></script>
-						<script type="text/javascript" src="app/tpl/habbo/js/libs2.js"></script>
-						<script type="text/javascript" src="app/tpl/habbo/js/homeview.js"></script>
-					</cfif>
-				</cfif>
-				
-				<cfif p neq "index">
+				<cfif p neq "index" AND p neq "maintenance">
 					<link rel="stylesheet" href="app/tpl/habbo/styles/common.css" />
 					<script type="text/javascript" src="app/tpl/habbo/js/common.js"></script>
 					<script type="text/javascript" src="app/tpl/habbo/js/visual.js"></script>
@@ -140,6 +129,16 @@
 
 				<cfif p eq "credits">
 					<link rel="stylesheet" href="app/tpl/habbo/styles/newcredits.css" />
+				</cfif>
+				
+				<cfif p eq "profile">
+					<link rel="stylesheet" href="app/tpl/habbo/styles/homes/boxes.css" />
+					<link rel="stylesheet" href="app/tpl/habbo/styles/homes/buttons.css" />
+					<link rel="stylesheet" href="app/tpl/habbo/styles/homes/control.textarea.css" />
+					<link rel="stylesheet" href="app/tpl/habbo/styles/homes/dialogs.css" />
+					<link rel="stylesheet" href="app/tpl/habbo/styles/homes/myhabbo.css" />
+					<link rel="stylesheet" href="app/tpl/habbo/styles/homes/skins.css" />
+					<script type="text/javascript" src="app/tpl/habbo/js/homeedit.js"></script>
 				</cfif>
 				
 				<cfif p eq "index">
