@@ -53,26 +53,7 @@
 				</title>
 				
 				<link rel="shortcut icon" href="app/tpl/habbo/images/favicon.ico" type="image/vnd.microsoft.icon" />
-				
-				<script type="text/javascript">
-					document.habboLoggedIn = true;
-					var habboName = null;
-					var habboId = null;
-					var habboReqPath = "";
-					var habboStaticFilePath = "app/tpl/habbo";
-					var habboImagerUrl = "http://www.habbo.nl/habbo-imaging/";
-					var habboPartner = "";
-					var habboDefaultClientPopupUrl = "?p=client";
-					window.name = "habboMain";
-					if (typeof HabboClient != "undefined") {
-						HabboClient.windowName = "client";
-						HabboClient.maximizeWindow = true;
-					}
-				</script>
-				
 				<script src="http://code.jquery.com/jquery-latest.js"></script>
-				<script type="text/javascript" src="app/tpl/habbo/js/fullcontent.js"></script>
-				<script type="text/javascript" src="app/tpl/habbo/js/homeauth.js"></script>
 				
 				<cfif p neq "register">
 					<link rel="stylesheet" href="app/tpl/habbo/styles/personal.css" />
@@ -92,12 +73,30 @@
 				
 				<cfif p neq "index" AND p neq "maintenance">
 					<link rel="stylesheet" href="app/tpl/habbo/styles/common.css" />
-					<script type="text/javascript" src="app/tpl/habbo/js/common.js"></script>
 					<script type="text/javascript" src="app/tpl/habbo/js/visual.js"></script>
 					<script type="text/javascript" src="app/tpl/habbo/js/libs.js"></script>
 					<script type="text/javascript" src="app/tpl/habbo/js/libs2.js"></script>
+					<script type="text/javascript" src="app/tpl/habbo/js/common.js"></script>
 					<script type="text/javascript" src="app/tpl/habbo/js/homeview.js"></script>
+					<script type="text/javascript" src="app/tpl/habbo/js/homeauth.js"></script>
+					<script type="text/javascript" src="app/tpl/habbo/js/fullcontent.js"></script>
 				</cfif>
+				
+				<script type="text/javascript">
+					document.habboLoggedIn = true;
+					var habboName = null;
+					var habboId = null;
+					var habboReqPath = "";
+					var habboStaticFilePath = "app/tpl/habbo";
+					var habboImagerUrl = "http://www.habbo.nl/habbo-imaging/";
+					var habboPartner = "";
+					var habboDefaultClientPopupUrl = "?p=client";
+					window.name = "habboMain";
+					if (typeof HabboClient != "undefined") {
+						HabboClient.windowName = "client";
+						HabboClient.maximizeWindow = true;
+					}
+				</script>
 				
 				<cfif p eq "register">
 					<link rel="stylesheet" href="app/tpl/habbo/styles/quickregister.css" />
@@ -132,16 +131,18 @@
 				</cfif>
 				
 				<cfif p eq "profile">
+					<script type="text/javascript" src="app/tpl/habbo/js/domready.js"></script>
+					<script type="text/javascript" src="app/tpl/habbo/js/group.js"></script>
+					<link rel="stylesheet" href="app/tpl/habbo/styles/assets/backgrounds.css" />
+					<link rel="stylesheet" href="app/tpl/habbo/styles/assets/stickers.css" />
+					<link rel="stylesheet" href="app/tpl/habbo/styles/assets/other.css" />
 					<link rel="stylesheet" href="app/tpl/habbo/styles/homes/boxes.css" />
 					<link rel="stylesheet" href="app/tpl/habbo/styles/homes/buttons.css" />
 					<link rel="stylesheet" href="app/tpl/habbo/styles/homes/control.textarea.css" />
 					<link rel="stylesheet" href="app/tpl/habbo/styles/homes/dialogs.css" />
 					<link rel="stylesheet" href="app/tpl/habbo/styles/homes/myhabbo.css" />
+					<link rel="stylesheet" href="app/tpl/habbo/styles/myhabbo.css" />
 					<link rel="stylesheet" href="app/tpl/habbo/styles/homes/skins.css" />
-				</cfif>
-				
-				<cfif p eq "profile" AND isdefined('edit')>
-					<script type="text/javascript" src="app/tpl/habbo/js/homeedit.js"></script>
 
 					<style type="text/css">
 					    ##playground, ##playground-outer {
@@ -149,6 +150,10 @@
 						    height: 960px;
 					    }
 					</style>
+				</cfif>
+				
+				<cfif p eq "profile" AND isdefined('edit')>
+					<script type="text/javascript" src="app/tpl/habbo/js/homeedit.js"></script>
 					
 					<script language="JavaScript" type="text/javascript">
 					Event.onDOMReady(function() { initView(13571262, 13571262); });
@@ -161,11 +166,11 @@
 					}
 					<cfoutput>
 					function cancelEditing(expired) {
-						location.replace("index.cfm?name=#session.username#" + (expired ? "?expired=true" : ""));
+						location.replace("?p=profile" + (expired ? "&expired=true" : ""));
 					}
 					</cfoutput>
 					function getSaveEditingActionName(){
-						return 'save.cfm';
+						return 'app/func/saveHome.cfm';
 					}
 					
 					function showEditErrorDialog() {
