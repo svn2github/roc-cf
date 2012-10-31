@@ -144,7 +144,7 @@
 					<script type="text/javascript" src="app/tpl/habbo/js/homeedit.js"></script>
 
 					<style type="text/css">
-					    #playground, #playground-outer {
+					    ##playground, ##playground-outer {
 						    width: 752px;
 						    height: 960px;
 					    }
