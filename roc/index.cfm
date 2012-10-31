@@ -138,7 +138,58 @@
 					<link rel="stylesheet" href="app/tpl/habbo/styles/homes/dialogs.css" />
 					<link rel="stylesheet" href="app/tpl/habbo/styles/homes/myhabbo.css" />
 					<link rel="stylesheet" href="app/tpl/habbo/styles/homes/skins.css" />
+				</cfif>
+				
+				<cfif p eq "profile" AND isdefined('edit')>
 					<script type="text/javascript" src="app/tpl/habbo/js/homeedit.js"></script>
+
+					<style type="text/css">
+					    #playground, #playground-outer {
+						    width: 752px;
+						    height: 960px;
+					    }
+					</style>
+					
+					<script language="JavaScript" type="text/javascript">
+					Event.onDOMReady(function() { initView(13571262, 13571262); });
+					function isElementLimitReached() {
+						if (getElementCount() >= 200) {
+							showHabboHomeMessageBox("You have already placed the maximum number of items on the page. Remove a sticker, note or widget to be able to place this item.", "Error", "Close");
+							return true;
+						}
+						return false;
+					}
+					<cfoutput>
+					function cancelEditing(expired) {
+						location.replace("index.cfm?name=#session.username#" + (expired ? "?expired=true" : ""));
+					}
+					</cfoutput>
+					function getSaveEditingActionName(){
+						return 'save.cfm';
+					}
+					
+					function showEditErrorDialog() {
+						var closeEditErrorDialog = function(e) { if (e) { Event.stop(e); } Element.remove($("myhabbo-error")); Overlay.hide(); }
+						var dialog = Dialog.createDialog("myhabbo-error", "", false, false, false, closeEditErrorDialog);
+						Dialog.setDialogBody(dialog, '<p>Error occured! Please try again in couple of minutes.</p><p><a href="#" class="new-button" id="myhabbo-error-close"><b>Close</b><i></i></a></p><div class="clear"></div>');
+						Event.observe($("myhabbo-error-close"), "click", closeEditErrorDialog);
+						Dialog.moveDialogToCenter(dialog);
+						Dialog.makeDialogDraggable(dialog);
+					}
+					
+					
+					function showSaveOverlay() {
+						var invalidPos = getElementsInInvalidPositions();
+						if (invalidPos.length > 0) {
+							showHabboHomeMessageBox("Sorry!", "Sorry, but you can\'t place your stickers, notes or widgets here. Close the window to continue editing your page.", "Close");
+							$A(invalidPos).each(function(el) { Effect.Pulsate(el); });
+							return false;
+						} else {
+							Overlay.show(null,'Saving');
+							return true;
+						}
+					}
+					</script>
 				</cfif>
 				
 				<cfif p eq "index">
