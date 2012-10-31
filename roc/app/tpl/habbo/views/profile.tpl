@@ -105,7 +105,9 @@
 							
 							<cfoutput query="LoadWidgets">
 								<cfif type is 1><cfinclude template="homes/profileWidget.tpl" />
-								<cfelseif type is 2><cfinclude template="homes/groupsWidget.tpl" /></cfif>
+								<cfelseif type is 2><cfinclude template="homes/groupsWidget.tpl" />
+								<cfelseif type is 3><cfinclude template="homes/roomsWidget.tpl" />
+								</cfif>
 							</cfoutput>
 
 						</div>
