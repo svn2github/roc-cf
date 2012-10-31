@@ -191,7 +191,7 @@
 				<![endif]-->
 			</head>
 			
-			<body id="<cfif p eq "index">frontpage<cfelse>#p#</cfif>" class="<cfif p eq "logout" or p eq "client_disconnect">process-template</cfif>">
+			<body id="<cfif p eq "index">frontpage<cfelseif p eq "profile">viewmode<cfelse>#p#</cfif>" class="<cfif p eq "logout" or p eq "client_disconnect">process-template</cfif>">
 				<!--- Include header (on pages except those listed below) --->
 				<cfif p eq "index" or p eq "register" or p eq "logout" or p eq "login" or p eq "imager" or p eq "client" or p eq "client_disconnect">
 				<cfelse>
