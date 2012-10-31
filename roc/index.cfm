@@ -171,7 +171,7 @@
 					function showEditErrorDialog() {
 						var closeEditErrorDialog = function(e) { if (e) { Event.stop(e); } Element.remove($("myhabbo-error")); Overlay.hide(); }
 						var dialog = Dialog.createDialog("myhabbo-error", "", false, false, false, closeEditErrorDialog);
-						Dialog.setDialogBody(dialog, '<p>Error occured! Please try again in couple of minutes.</p><p><a href="#" class="new-button" id="myhabbo-error-close"><b>Close</b><i></i></a></p><div class="clear"></div>');
+						Dialog.setDialogBody(dialog, '<p>Error occured! Please try again in couple of minutes.</p><p><a href="##" class="new-button" id="myhabbo-error-close"><b>Close</b><i></i></a></p><div class="clear"></div>');
 						Event.observe($("myhabbo-error-close"), "click", closeEditErrorDialog);
 						Dialog.moveDialogToCenter(dialog);
 						Dialog.makeDialogDraggable(dialog);
