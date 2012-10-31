@@ -17,6 +17,7 @@
 	SELECT *
 	FROM cms_homes
 	WHERE user = '#session.userid#'
+	LIMIT 1
 </cfquery>
 
 <cfif not getHome.recordcount>
@@ -36,6 +37,7 @@
 	SELECT *
 	FROM cms_homes
 	WHERE user = '#session.userid#'
+	LIMIT 1
 </cfquery>
 
 <cfquery name = "LoadStickers" datasource = "#config.DSN#">

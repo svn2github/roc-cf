@@ -1,3 +1,10 @@
+<cfquery name = "getSkin" datasource = "#config.DSN#">
+	SELECT *
+	FROM cms_skins
+	WHERE ID = '#skin#'
+	LIMIT 1
+</cfquery>
+
 <cfoutput>
 <div class="movable widget ProfileWidget" id="widget-#id#" style=" left: #wX#px; top: #wY#px; z-index: #wZ#;">
 	<cfif editmode is true>
@@ -7,7 +14,7 @@
 			); }, false);
 		</script>
 	</cfif>
-	<div class="w_skin_speechbubbleskin">
+	<div class="w_skin_#getSkin.name#">
 		<div class="widget-corner" id="widget-3-handle">
 			<div class="widget-headline">
 				<h3 style="left: 0px; top: 7px">
@@ -33,7 +40,7 @@
 						Created on:
 					</div>
 					<div class="birthday date">
-						#getProfile.account_created#
+						#DateFormat(DateAdd("s", getProfile.account_created, "January 1 1970 00:00:00"), "mmmm dd, yyyy")#
 					</div>
 					<cfif isdefined('Theirbadge') AND not Theirbadge is "">
 						<img src="/images/badges/#Theirbadge#.gif" />
