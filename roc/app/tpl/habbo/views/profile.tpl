@@ -78,7 +78,7 @@
 
 		<div id="mypage-wrapper" class="cbb blue">
 			<div class="box-tabs-container box-tabs-left clearfix">
-			    <cfif not editmode is true><a href="?p=profile&edit" id="myhabbo-group-tools-button" class="new-button dark-button edit-icon" style="float:left"><b><span></span>Edit</b><i></i></a></cfif>
+			    <cfif not editmode is true AND guestmode is false AND session.userid is GetProfile.id><a href="?p=profile&edit" id="myhabbo-group-tools-button" class="new-button dark-button edit-icon" style="float:left"><b><span></span>Edit</b><i></i></a></cfif>
 				<div class="myhabbo-view-tools"></div>
 			    <h2 class="page-owner">Profile</h2>
 			    <ul class="box-tabs"></ul>
