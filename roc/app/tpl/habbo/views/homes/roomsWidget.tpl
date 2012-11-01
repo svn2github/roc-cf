@@ -6,11 +6,14 @@
 </cfquery>
 
 <cfoutput><div class="movable widget RoomsWidget" id="widget-#LoadWidgets.id#" style=" left: #wX#px; top: #wY#px; z-index: #wZ#;">
-	<img src="app/tpl/habbo/images/myhabbo/icon_edit.gif" width="19" height="18" class="edit-button" id="widget-#LoadWidgets.id#-edit" />
-	<script language="JavaScript" type="text/javascript">
-		Event.observe("widget-#LoadWidgets.id#-edit", "click", function(e) { openEditMenu(e, #LoadWidgets.id#, "widget", "widget-#LoadWidgets.id#-edit"
-		); }, false);
-	</script>
+	<cfif editmode is true>
+		<img src="app/tpl/habbo/images/myhabbo/icon_edit.gif" width="19" height="18" class="edit-button" id="widget-#LoadWidgets.id#-edit" />
+		<script language="JavaScript" type="text/javascript">
+			Event.observe("widget-#LoadWidgets.id#-edit", "click", function(e) { openEditMenu(e, #LoadWidgets.id#, "widget", "widget-#LoadWidgets.id#-edit"
+			); }, false);
+		</script>
+	</cfif>
+	
 	<cfquery name = "RoomDetails" datasource = "#config.DSN#">
 		SELECT *
 		FROM rooms
