@@ -16,7 +16,7 @@
 <cfquery name = "getHome" datasource = "#config.DSN#">
 	SELECT *
 	FROM cms_homes
-	WHERE user = '#session.userid#'
+	WHERE user = <CFQUERYPARAM VALUE="#session.userid#" CFSQLType="CF_SQL_INTGER">
 	LIMIT 1
 </cfquery>
 
@@ -36,20 +36,20 @@
 <cfquery name = "getHome" datasource = "#config.DSN#">
 	SELECT *
 	FROM cms_homes
-	WHERE user = '#session.userid#'
+	WHERE user = <CFQUERYPARAM VALUE="#session.userid#" CFSQLType="CF_SQL_INTGER">
 	LIMIT 1
 </cfquery>
 
 <cfquery name = "LoadStickers" datasource = "#config.DSN#">
 	SELECT *
 	FROM cms_stickers
-	WHERE user = '#session.userid#'
+	WHERE user = <CFQUERYPARAM VALUE="#session.userid#" CFSQLType="CF_SQL_INTGER">
 </cfquery>
 
 <cfquery name = "LoadWidgets" datasource = "#config.DSN#">
 	SELECT *
 	FROM cms_widgets
-	WHERE user = '#session.userid#'
+	WHERE user = <CFQUERYPARAM VALUE="#session.userid#" CFSQLType="CF_SQL_INTGER">
 </cfquery>
 
 <cfif GetProfile.GroupID neq 0>

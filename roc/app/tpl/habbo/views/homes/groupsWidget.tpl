@@ -1,7 +1,7 @@
 <cfquery name = "getSkin" datasource = "#config.DSN#">
 	SELECT *
 	FROM cms_skins
-	WHERE ID = '#skin#'
+	WHERE ID = <CFQUERYPARAM VALUE="#skin#" CFSQLType="CF_SQL_INTGER">
 	LIMIT 1
 </cfquery>
 
@@ -17,7 +17,7 @@
 	<cfquery name = "GroupList" datasource = "#config.DSN#">
 		SELECT *
 		FROM group_memberships
-		WHERE userid = #session.userid#
+		WHERE userid = <CFQUERYPARAM VALUE="#session.userid#" CFSQLType="CF_SQL_INTGER">
 	</cfquery>
 	<div class="w_skin_#getSkin.name#">
 		<div class="widget-corner" id="widget-#LoadWidgets.id#-handle">

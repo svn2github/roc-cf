@@ -1,7 +1,7 @@
 <cfquery name = "getSkin" datasource = "#config.DSN#">
 	SELECT *
 	FROM cms_skins
-	WHERE ID = '#skin#'
+	WHERE ID = <CFQUERYPARAM VALUE="#skin#" CFSQLType="CF_SQL_INTGER">
 	LIMIT 1
 </cfquery>
 
@@ -14,7 +14,7 @@
 	<cfquery name = "RoomDetails" datasource = "#config.DSN#">
 		SELECT *
 		FROM rooms
-		WHERE owner = '#session.username#'
+		WHERE owner = <CFQUERYPARAM VALUE="#session.userid#" CFSQLType="CF_SQL_INTGER">
 	</cfquery>
 	<cfset opentype = #RoomDetails.state#>
 	<cfif opentype is "0">

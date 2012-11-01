@@ -1,7 +1,7 @@
 <cfquery name = "getSkin" datasource = "#config.DSN#">
 	SELECT *
 	FROM cms_skins
-	WHERE ID = '#skin#'
+	WHERE ID = <CFQUERYPARAM VALUE="#skin#" CFSQLType="CF_SQL_INTGER">
 	LIMIT 1
 </cfquery>
 
