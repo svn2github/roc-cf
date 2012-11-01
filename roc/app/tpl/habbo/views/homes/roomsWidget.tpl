@@ -17,7 +17,7 @@
 	<cfquery name = "RoomDetails" datasource = "#config.DSN#">
 		SELECT *
 		FROM rooms
-		WHERE owner = <CFQUERYPARAM VALUE="#session.userid#" CFSQLType="CF_SQL_INTGER">
+		WHERE owner = <CFQUERYPARAM VALUE="#session.username#" CFSQLType="CF_SQL_VARCHAR">
 	</cfquery>
 	<cfset opentype = #RoomDetails.state#>
 	<cfif opentype is "0">
@@ -27,7 +27,6 @@
 	<cfelseif opentype is "2">
 		<cfset opentype = "password">
 	</cfif>
-	<cfset room = #RoomDetails.ID#>
 
 	<div class="w_skin_#getSkin.name#">
 		<div class="widget-corner" id="widget-#LoadWidgets.id#-handle">
