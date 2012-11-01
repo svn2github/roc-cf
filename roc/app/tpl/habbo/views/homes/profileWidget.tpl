@@ -28,7 +28,7 @@
 			<div class="widget-content">
 				<div class="profile-info">
 					<div class="name" style="float: left">
-						<span class="name-text">#session.username#</span>
+						<span class="name-text">#GetProfile.username#</span>
 					</div>
 					<br class="clear" />
 					<cfif GetProfile.online is "1">
@@ -47,14 +47,14 @@
 					</cfif>
 				</div>
 				<div class="profile-figure">
-					<img alt="#session.username#" src="avatarimage.cfm?user=<cfoutput>#session.username#</cfoutput>&size=b&direction=4&head_direction=4&gesture=sml">
+					<img alt="#GetProfile.username#" src="avatarimage.cfm?user=<cfoutput>#GetProfile.username#</cfoutput>&size=b&direction=4&head_direction=4&gesture=sml">
 							        			</div>
 				<div class="profile-motto">
 					#getProfile.motto#
 					<div class="clear"></div>
 				</div>
 				<cfif isdefined('session.username')>
-					<cfif not session.username is session.username>
+					<cfif not session.username is GetProfile.username>
 						<div class="profile-friend-request clearfix">
 							<a href="##" class="new-button" id="add-friend" style="float: left"><b>Add as friend</b><i></i></a>
 						</div>
@@ -68,7 +68,7 @@
 							<cfquery name = "GetTags" datasource = "#config.DSN#">
 								SELECT tag
 								FROM user_tags
-								WHERE user_id = '#session.userid#'
+								WHERE user_id = '#GetProfile.id#'
 							</cfquery>
 					        <cfif not GetTags.recordcount>
 					        	No tags
@@ -106,9 +106,9 @@
 				</div>
 				    <script type="text/javascript">
 						Event.onDOMReady(function() {
-							new ProfileWidget('#session.userid#', '#session.userid#', {
+							new ProfileWidget('#GetProfile.id#', '#GetProfile.id#', {
 								headerText: "Are you sure?",
-								messageText: "Are you sure you want to ask <strong\>#session.username#</strong\> to be your friend?",
+								messageText: "Are you sure you want to ask <strong\>#GetProfile.username#</strong\> to be your friend?",
 								buttonText: "OK",
 								cancelButtonText: "Cancel"
 							});

@@ -17,7 +17,7 @@
 	<cfquery name = "GroupList" datasource = "#config.DSN#">
 		SELECT *
 		FROM group_memberships
-		WHERE userid = <CFQUERYPARAM VALUE="#session.userid#" CFSQLType="CF_SQL_INTGER">
+		WHERE userid = <CFQUERYPARAM VALUE="#GetProfile.id#" CFSQLType="CF_SQL_INTGER">
 	</cfquery>
 	<div class="w_skin_#getSkin.name#">
 		<div class="widget-corner" id="widget-#LoadWidgets.id#-handle">
@@ -41,7 +41,7 @@
 								</h4>
 								<p>
 									Group created:<br /> 
-									<cfif GroupDetails.ownerid is session.userid><img src="/images/groups/owner_icon.gif" width="15" height="15" class="groups-list-icon" alt="Owner" title="Owner" /></cfif>
+									<cfif GroupDetails.ownerid is GetProfile.id><img src="/images/groups/owner_icon.gif" width="15" height="15" class="groups-list-icon" alt="Owner" title="Owner" /></cfif>
 									<b>#GroupDetails.created#</b>
 								</p>
 								<div class="clear"></div>

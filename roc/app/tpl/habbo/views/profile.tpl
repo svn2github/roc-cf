@@ -1,22 +1,34 @@
-<cfif not StructKeyExists(session, "userid")><cflocation url="?p=index" addtoken="no"></cfif>
+<cfif not StructKeyExists(session, "userid")>
+	<cfset guestmode = true>
+<cfelse>
+	<cfset guestmode = false>
+</cfif>
 
-<cfif isdefined('edit')>
+<cfif isdefined('url.u')>
+	<cfset UsersPage = url.u>
+<cfelseif guestmode is false>
+	<cfset UsersPage = session.username>
+<cfelse>
+	<cflocation url="?p=index" addtoken="no">
+</cfif>
+
+<cfif isdefined('edit') AND guestmode is false>
 	<cfset editmode = true>
 <cfelse>
 	<cfset editmode = false>
 </cfif>
 
 <cfquery name="GetProfile" datasource="#config.DSN#">
-	SELECT users.username, users.motto, users.online, user_stats.groupid, users.account_created
+	SELECT users.id, users.username, users.motto, users.online, user_stats.groupid, users.account_created
 	FROM users, user_stats
-	WHERE users.id = <CFQUERYPARAM VALUE="#session.userid#" CFSQLType="CF_SQL_INTGER"> AND user_stats.id = <CFQUERYPARAM VALUE="#session.userid#" CFSQLType="CF_SQL_INTGER">
+	WHERE users.username = <CFQUERYPARAM VALUE="#UsersPage#" CFSQLType="CF_SQL_VARCHAR"> AND user_stats.id = users.id
 	LIMIT 1
 </cfquery>
 
 <cfquery name = "getHome" datasource = "#config.DSN#">
 	SELECT *
 	FROM cms_homes
-	WHERE user = <CFQUERYPARAM VALUE="#session.userid#" CFSQLType="CF_SQL_INTGER">
+	WHERE user = <CFQUERYPARAM VALUE="#GetProfile.id#" CFSQLType="CF_SQL_INTGER">
 	LIMIT 1
 </cfquery>
 
@@ -24,32 +36,32 @@
 	<!-- We don't have a home - let's make one! :D -->
 	<cfquery name = "HaveaHome" datasource = "#config.DSN#">
 		INSERT INTO cms_homes (user)
-		VALUES (#session.userid#)
+		VALUES (#GetProfile.id#)
 	</cfquery>
 
 	<cfquery name = "HaveaProfileWidget" datasource = "#config.DSN#">
 		INSERT INTO cms_widgets (wX, wY, wZ, type, user)
-		VALUES (50,50,1,1,#session.userid#)
+		VALUES (50,50,1,1,#GetProfile.id#)
 	</cfquery>
 </cfif>
 
 <cfquery name = "getHome" datasource = "#config.DSN#">
 	SELECT *
 	FROM cms_homes
-	WHERE user = <CFQUERYPARAM VALUE="#session.userid#" CFSQLType="CF_SQL_INTGER">
+	WHERE user = <CFQUERYPARAM VALUE="#GetProfile.id#" CFSQLType="CF_SQL_INTGER">
 	LIMIT 1
 </cfquery>
 
 <cfquery name = "LoadStickers" datasource = "#config.DSN#">
 	SELECT *
 	FROM cms_stickers
-	WHERE user = <CFQUERYPARAM VALUE="#session.userid#" CFSQLType="CF_SQL_INTGER">
+	WHERE user = <CFQUERYPARAM VALUE="#GetProfile.id#" CFSQLType="CF_SQL_INTGER">
 </cfquery>
 
 <cfquery name = "LoadWidgets" datasource = "#config.DSN#">
 	SELECT *
 	FROM cms_widgets
-	WHERE user = <CFQUERYPARAM VALUE="#session.userid#" CFSQLType="CF_SQL_INTGER">
+	WHERE user = <CFQUERYPARAM VALUE="#GetProfile.id#" CFSQLType="CF_SQL_INTGER">
 </cfquery>
 
 <cfif GetProfile.GroupID neq 0>

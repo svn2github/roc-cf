@@ -17,7 +17,7 @@
 	<cfquery name = "RoomDetails" datasource = "#config.DSN#">
 		SELECT *
 		FROM rooms
-		WHERE owner = <CFQUERYPARAM VALUE="#session.username#" CFSQLType="CF_SQL_VARCHAR">
+		WHERE owner = <CFQUERYPARAM VALUE="#GetProfile.username#" CFSQLType="CF_SQL_VARCHAR">
 	</cfquery>
 	<cfset opentype = #RoomDetails.state#>
 	<cfif opentype is "0">
