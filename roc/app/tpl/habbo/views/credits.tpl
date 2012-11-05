@@ -44,9 +44,44 @@
 					</div>
 			</div>
 
-			<div class="disclaimer" style="border: 0 !important;">
-				<h3><span>Beware of Scammers</span></h3>
-				Some users will try trick you into giving your password to steal your credits. Make sure you dont enter your password anywhere except the #sitename# login.<br>
+			<div class="method-group phone clearfix   cbs2">
+				<div class="method idx0 nosmallprint">
+					<div class="method-content">
+						<h2>HC Subscription</h2>
+						<div class="top"><div></div></div>
+						<div class="summary clearfix">
+							<p style="padding: 10px 10px 20px 10px">HC is a subscription which allows users to unlock in-game features and additional clothing.
+							<br /><br />HC is bought with in-game currency, more information on costs can be found within the hotel!</p>
+							<p><a href="?p=client" target="_blank" class="new-button green-button methodurl"><b>Play Now</b><i></i></a></p>
+						</div>
+					</div>
+				<div class="bottom"><div></div></div>
+			</div>
+
+  
+			<div class="method-group phone clearfix   cbs2">
+				<div class="method idx0 nosmallprint">
+					<div class="method-content">
+						<h2>VIP Subscription</h2>
+						<div class="top"><div></div></div>
+						<div class="summary clearfix">
+							<p style="padding: 10px 10px 20px 10px">VIP is a subsription which gives users extra in-game features and additional coins/pixels.
+							<br/><br />VIP is bought with real money and is only available for purchase via our forums!</p>
+							<p><a href="http://otaku-studios.com/payments.php" target="_blank" class="new-button green-button methodurl"><b>Buy VIP</b><i></i></a></p>
+						</div>
+					</div>
+				<div class="bottom"><div></div></div>
+			</div>
+
+            <div class="credits-footer clearfix" style="float:left;">
+				<div class="disclaimer" style="border: 0 !important;">
+					<h3><span>Beware of Scammers</span></h3>
+					Some users will try trick you into giving your password to steal your credits. Make sure you dont enter your password anywhere except the #sitename# login.<br>
+				</div>
+				<div class="disclaimer" style="border: 0 !important;">
+					<h3><span>Sharing VIP</span></h3>
+					VIP sharing is strictly against our policy, anybody caught sharing VIP may have their subscription terminated. Please seek parental permission before purchasing VIP!<br>
+				</div>
 			</div>
 		</div></div></div><div class="bb"><div></div></div></div>
 	</div>
