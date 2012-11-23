@@ -11,8 +11,8 @@
 	<cfset minRank = 6>
 	<cfset maxRank = 7>
 
-	<cfset musHost = "63.143.52.174">
-	<cfset musPort = 1255>
+	<cfset musHost = "IP">
+	<cfset musPort = 30001>
 	
 	<!--- Share the DSN with the Habbo-imager --->
 	<cfset session.DSN = getProfileString(iniFile, "main", "DSN")>
