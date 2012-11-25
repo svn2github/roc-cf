@@ -1,7 +1,3 @@
-	<cfquery name="GetBans" datasource="#config.DSN#">
-		SELECT * FROM bans WHERE value = <CFQUERYPARAM VALUE="#session.username#" CFSQLType="CF_SQL_VARCHAR"> AND expire > UNIX_TIMESTAMP() OR value = '#CGI.REMOTE_ADDR#' AND expire > UNIX_TIMESTAMP() ORDER BY ID DESC LIMIT 1
-	</cfquery>
-
 	<div id="container">
 		<div class="cb process-template-box clearfix"><div class="bt"><div></div></div><div class="i1"><div class="i2"><div class="i3">
 			<div id="content" class="wide">
@@ -14,17 +10,18 @@
 				<div id="process-content">
 					<div class="action-confirmation flash-message">
 						<div class="rounded-container"><div style="background-color: rgb(255, 255, 255); "><div style="margin: 0px 4px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(150, 213, 107); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(104, 194, 41); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(81, 184, 9); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(75, 182, 1); "></div></div></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(149, 212, 106); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(76, 182, 2); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(75, 182, 1); "></div></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(120, 200, 65); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(75, 182, 1); "></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(149, 212, 106); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(75, 182, 1); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(76, 182, 2); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(75, 182, 1); "></div></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(150, 213, 107); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(75, 182, 1); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(104, 194, 41); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(75, 182, 1); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(81, 184, 9); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(75, 182, 1); "></div></div></div><div class="rounded-done">
-						<cfif GetBans.recordcount>
-							<td style="padding-left:15px;">
-								<h2>You've been banned!</h2>
-								<cfoutput>
-									It appears #session.username# (#GetBans.value#) has been banned from accessing the hotel.<br />
-									<strong>Reason</strong>: #GetBans.reason#<br />
-									<strong>Expires</strong>: #DateFormat(dateAdd("s", GetBans.expire, "01/01/1970"))# #TimeFormat(dateAdd("s", GetBans.expire, "01/01/1970"))#
-								</cfoutput>
-							</td>
-							<cfset structClear(session) />
-						<cfelse>
+
+						<cfset UserBanned = 0>
+						<cfif StructKeyExists(session, "username")>
+							<cfquery name="GetBans" datasource="#config.DSN#">
+								SELECT * FROM bans WHERE value = <CFQUERYPARAM VALUE="#session.username#" CFSQLType="CF_SQL_VARCHAR"> AND expire > UNIX_TIMESTAMP() OR value = '#CGI.REMOTE_ADDR#' AND expire > UNIX_TIMESTAMP() ORDER BY ID DESC LIMIT 1
+							</cfquery>
+							<cfif GetBans.RecordCount>
+								<cfset UserBanned = 1>
+							</cfif>
+						</cfif>
+
+						<cfif NOT UserBanned>
 							<td>
 								<h1>Oops a problem occurred, sorry!</h1>
 								<cfoutput>
@@ -38,7 +35,18 @@
 								</cfoutput>
 								Please try reloading the hotel, if the problem continues wait a few minutes before trying again. If you are unable to get onto the hotel for a long peroid of time please report the issue on our <a href="http://www.otaku-studios.com/f836/">forums</a>.
 							</td>
+						<cfelse>
+							<td style="padding-left:15px;">
+								<h2>You've been banned!</h2>
+								<cfoutput>
+									It appears #session.username# (#GetBans.value#) has been banned from accessing the hotel.<br />
+									<strong>Reason</strong>: #GetBans.reason#<br />
+									<strong>Expires</strong>: #DateFormat(dateAdd("s", GetBans.expire, "01/01/1970"))# #TimeFormat(dateAdd("s", GetBans.expire, "01/01/1970"))#
+								</cfoutput>
+							</td>
+							<cfset StructClear(session) />
 						</cfif>
+						
 					</div><div style="background-color: rgb(255, 255, 255); "><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(81, 184, 9); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(75, 182, 1); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(104, 194, 41); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(75, 182, 1); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(150, 213, 107); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(75, 182, 1); "></div></div><div style="margin: 0px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(76, 182, 2); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(75, 182, 1); "></div></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(149, 212, 106); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(75, 182, 1); "></div></div><div style="margin: 0px 1px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(120, 200, 65); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(75, 182, 1); "></div></div></div><div style="margin: 0px 2px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(149, 212, 106); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(76, 182, 2); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(75, 182, 1); "></div></div></div></div><div style="margin: 0px 4px; height: 1px; overflow: hidden; background-color: rgb(255, 255, 255); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(150, 213, 107); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(104, 194, 41); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(81, 184, 9); "><div style="height: 1px; overflow: hidden; margin: 0px 1px; background-color: rgb(75, 182, 1); "></div></div></div></div></div></div></div>
 				</div>
 

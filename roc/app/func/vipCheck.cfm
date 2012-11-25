@@ -11,7 +11,7 @@
 			<cfif i is 178>
 				<cfset IsVIP = "true">
 				<cfif session.vip eq 0>
-					<cfquery name = "GiftVIP" datasource = "#DSN#">
+					<cfquery name = "GiftVIP" datasource = "#config.DSN#">
 						UPDATE users
 						SET vip = '1'
 						WHERE username = <CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
@@ -24,15 +24,25 @@
 
 	<cfif IsVIP is "false" AND session.vip eq 1>
 		<cfset session.vip = 0>
-		<cfquery name = "GiftVIP" datasource = "#DSN#">
+		<cfquery name = "GiftVIP" datasource = "#config.DSN#">
 			UPDATE users
 			SET vip = '0'
 			WHERE username = <CFQUERYPARAM VALUE="#form.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
 		</cfquery>
 	</cfif>
+	
+	<cfif session.rank gte 4>
+		<cfquery name = "GiftVIP" datasource = "#config.DSN#">
+			UPDATE users
+			SET vip = '1'
+			WHERE username = <CFQUERYPARAM VALUE="#session.username#" CFSQLType="CF_SQL_VARCHAR" MAXLENGTH="50">
+		</cfquery>
+		<cfset session.vip = 1>
+	</cfif>
+	
 	<cfcatch>
 		<br /><br />
-		<b>App Error: Unable to check for VIP. Please check that your vipCheck.cfm is setup correctly.</b>
+		<p><b>App Error: Unable to check for VIP. Error communicating with vipCheck.cfm. Please check MySQL is able to connect!</b></p>
 		<br /><br />
 		<cfset session.vip = 0>
 	</cfcatch>

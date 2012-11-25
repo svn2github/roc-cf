@@ -19,7 +19,3 @@
 <!--- Extras --->
 <cfset permissions.disconnect = getPermissions.cmd_disconnect>
 <cfset permissions.summon = getPermissions.cmd_summon>
-
-
-Your Housekeeping Permissions (getRankPermissions.cfm)<br /><br />
-<cfdump var="#permissions#">

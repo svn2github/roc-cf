@@ -2,10 +2,10 @@
 	<cfif permissions.disconnect eq 1>
 
 		<cfif StructKeyExists(url, "userid")>
-			<cfset SocketMessage = "signout" & #Chr(1)# & url.userid>
+			<cfset SocketMessage = "signout" & Chr(1) & url.userid>
 		</cfif>
 					
-		<cfinclude template="./connection/easySocket.cfm">
+		<cfinclude template="connection/easySocket.cfm">
 
 		<cftry>
 			<cfoutput>#easySocket('#musHost#','#musPort#','#SocketMessage#')#</cfoutput>

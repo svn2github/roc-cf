@@ -2,10 +2,10 @@
 	<cfif permissions.summon eq 1>
 
 		<cfif StructKeyExists(url, "userid") AND StructKeyExists(url, "roomid")>
-			<cfset SocketMessage = "senduser" & #Chr(1)# & url.userid & " " & url.roomid>
+			<cfset SocketMessage = "senduser" & Chr(1) & url.userid & " " & url.roomid>
 		</cfif>
 					
-		<cfinclude template="./connection/easySocket.cfm">
+		<cfinclude template="connection/easySocket.cfm">
 
 		<cftry>
 			<cfoutput>#easySocket('#musHost#','#musPort#','#SocketMessage#')#</cfoutput>

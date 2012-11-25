@@ -1,12 +1,11 @@
 <cfif StructKeyExists(permissions, "update_filter")>
 	<cfif permissions.update_filter eq 1>
 
-		<cfinclude template="./connection/easySocket.cfm">
-
-		<!--- option to add additional words then update --->
-
+		<cfset SocketMessage = "update_filter" & Chr(1)>
+	
+		<cfinclude template="connection/easySocket.cfm">
 		<cftry>
-			<cfoutput>#easySocket('#musHost#','#musPort#','update_filter')#</cfoutput>
+			<cfoutput>#easySocket('#musHost#','#musPort#','#SocketMessage#')#</cfoutput>
 			<cfcatch>failed</cfcatch>
 			success
 		</cftry>
