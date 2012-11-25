@@ -100,6 +100,11 @@
 </script>
 </cfoutput>
 
+<!--[if lt IE 7]>
+<script type="text/javascript">
+try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {}
+</script>
+<![endif]-->
  
 <body id="client" class="flashclient"> 
 <div id="overlay"></div> 
